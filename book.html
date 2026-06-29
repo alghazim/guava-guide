@@ -3,332 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guava Mastery · From Folk Knowledge to World-Class · إتقان زراعة الجوافة</title>
-<meta name="description" content="A complete, beautiful guava-farming roadmap for Kafr El Dawwar, Behira — bilingual EN/AR. دليل شامل لإتقان زراعة الجوافة.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Psidium guajava · A Husbandry · إتقان زراعة الجوافة</title>
+<meta name="description" content="An illustrated botanical husbandry of the guava — Kafr El Dawwar, Behira. With antique botanical plates.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fbf8ef; --paper:#ffffff; --ink:#1c2a22; --ink-soft:#46564c; --line:#e7e1d2;
-  --g900:#0d3a28; --g800:#114a32; --g700:#1f7a4d; --g600:#2c9d63; --g300:#9bd9b4; --g100:#e7f4ec;
-  --blush:#ef6a82; --blush-deep:#d94e6c; --blush-soft:#fce4e8; --seed:#c98a1e; --seed-soft:#f7ecd4;
-  --blue:#1f74ad; --teal:#0f8a8a; --red:#c0392b; --purple:#7b4ca0;
-  --shadow:0 10px 30px -12px rgba(20,60,40,.18); --shadow-lg:0 30px 60px -20px rgba(20,60,40,.30);
-  --bar-bg:rgba(251,248,239,.82); --code-bg:#f0ece0; --row-alt:#faf7ee;
-  --maxw:1180px; --rad:20px;
-  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
-  --ar-serif:'Amiri',serif; --ar-sans:'Tajawal',system-ui,sans-serif;
+  --bg:#f1e7cf; --paper:#f7efda; --ink:#33291a; --ink-soft:#5f5236; --faint:#8a7c5a; --line:#d8c6a0; --rule:#c9b489;
+  --accent:#7d3b2e; --green:#3f5a35; --gold:#9c7a32;
+  --bar-bg:rgba(241,231,207,.9); --code-bg:#e7dcbd; --row-alt:#eee3c6;
+  --shadow:0 16px 40px -20px rgba(70,52,22,.45);
+  --maxw:1180px; --read:740px;
+  --serif:'IM Fell English',Georgia,serif; --body:'IM Fell English',Georgia,serif; --sc:'IM Fell English SC','IM Fell English',serif;
+  --ar-serif:'Amiri',serif; --ar-sans:'Amiri',serif;
+  --paper-img:url("plates/blanco172.jpg");
+}
+body.dark{
+  --bg:#16170f; --paper:#1d1f15; --ink:#e9e1cb; --ink-soft:#b7ac8d; --faint:#7d7458; --line:#3a3826; --rule:#4a4630;
+  --accent:#d98a6a; --green:#9bb47e; --gold:#d8b25a;
+  --bar-bg:rgba(20,21,13,.88); --code-bg:#262617; --row-alt:#20210f;
+  --shadow:0 18px 44px -20px rgba(0,0,0,.75);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body.lang-ar{font-family:var(--ar-sans)}
-[dir="rtl"] body, body.lang-ar{font-family:var(--ar-sans)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:20px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;background-image:var(--paper-img);background-size:380px;background-repeat:repeat;mix-blend-mode:multiply}
+body.dark::before{opacity:.07;mix-blend-mode:screen}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>")}
 img{max-width:100%}
-a{color:var(--g700);text-decoration:none}
-.en,.ar{}
+a{color:var(--accent)}
 body.lang-en .ar{display:none !important}
 body.lang-ar .en{display:none !important}
+body.lang-ar{font-family:var(--ar-sans)}
 .ar{font-family:var(--ar-sans)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,52px);position:relative;z-index:2}
+.read{max-width:var(--read);margin-inline:auto}
 
-/* ---------- progress + header ---------- */
 .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;background:transparent}
-.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g600),var(--blush));transition:width .1s linear}
-header.bar{position:fixed;top:0;left:0;right:0;z-index:110;display:flex;align-items:center;justify-content:space-between;
-  padding:14px clamp(16px,4vw,40px);transition:.35s;background:transparent}
-header.bar.scrolled{background:var(--bar-bg);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding-top:10px;padding-bottom:10px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.15rem;color:#fff;letter-spacing:.2px;transition:.35s}
-header.scrolled .brand{color:var(--ink)}
-.brand .dot{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6,transparent 60%),conic-gradient(from 200deg,var(--blush),var(--seed),var(--g600),var(--blush));box-shadow:inset 0 0 0 2px #ffffff55}
-.bar-right{display:flex;align-items:center;gap:10px}
-.langtog{display:flex;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:3px;backdrop-filter:blur(6px)}
-header.scrolled .langtog{background:var(--paper);border-color:var(--line)}
-.langtog button{border:0;background:transparent;color:#fff;font:600 .82rem var(--sans);padding:6px 13px;border-radius:999px;cursor:pointer;letter-spacing:.4px;transition:.2s}
-header.scrolled .langtog button{color:var(--ink-soft)}
-.langtog button.on{background:#fff;color:var(--g800)}
-header.scrolled .langtog button.on{background:var(--g700);color:#fff}
-.langtog button .ar{font-family:var(--ar-sans)}
-.iconbtn{border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.16);color:#fff;width:42px;height:40px;border-radius:12px;cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
-header.scrolled .iconbtn{color:var(--ink);border-color:var(--line);background:var(--paper)}
-.iconbtn:hover{transform:translateY(-1px)}
-.menu-btn{display:none;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.16);color:#fff;width:42px;height:40px;border-radius:12px;cursor:pointer;font-size:1.1rem;align-items:center;justify-content:center}
-header.scrolled .menu-btn{color:var(--ink);border-color:var(--line);background:var(--paper)}
+.progress i{display:block;height:100%;width:0;background:var(--accent);opacity:.8;transition:width .1s linear}
+header.bar{position:fixed;top:0;left:0;right:0;z-index:110;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(16px,4vw,44px);transition:.35s}
+header.bar.scrolled{background:var(--bar-bg);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:baseline;gap:9px;font-family:var(--serif);font-weight:600;font-size:1.4rem;font-style:italic;color:var(--ink);letter-spacing:.3px}
+.brand .ar{font-style:normal;font-family:var(--ar-serif)}
+.bar-right{display:flex;align-items:center;gap:9px}
+.langtog{display:flex;border:1px solid var(--rule);border-radius:0;padding:2px;background:var(--paper)}
+.langtog button{border:0;background:transparent;color:var(--ink-soft);font:600 .78rem var(--body);padding:6px 12px;cursor:pointer;letter-spacing:.1em}
+.langtog button.on{background:var(--ink);color:var(--paper)}
+.iconbtn{border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);width:40px;height:38px;cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;justify-content:center}
+.iconbtn:hover{color:var(--accent)}
+.menu-btn{display:none}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
-  background:linear-gradient(165deg,#10503a 0%,#0f4733 48%,#0a3525 100%);color:#fdfaf2}
-.hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none}
-.hero .b1{width:520px;height:520px;background:#1f7a4d;top:-120px;left:-100px}
-.hero .b2{width:460px;height:460px;background:var(--blush);bottom:-160px;right:-80px;opacity:.40}
-.hero .b3{width:360px;height:360px;background:#2c9d63;bottom:10%;left:20%;opacity:.30}
-.hero .leafpat{position:absolute;inset:0;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><path d='M60 18c22 10 30 38 18 64-14-6-30-28-18-64z' fill='none' stroke='white' stroke-width='1.4'/></svg>");background-size:160px}
-.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:120px clamp(20px,5vw,48px) 90px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;width:100%}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font:600 .82rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#bfe9cf;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:7px 15px;border-radius:999px}
-body.lang-ar .eyebrow{letter-spacing:normal;text-transform:none;font-family:var(--ar-sans)}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,6vw,4.7rem);line-height:1.04;letter-spacing:-.02em;margin:22px 0 18px}
-body.lang-ar .hero h1{font-family:var(--ar-serif);line-height:1.18;letter-spacing:0}
-.hero h1 .accent{background:linear-gradient(100deg,var(--blush),#ffd1a8);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
-body.lang-ar .hero h1 .accent{font-style:normal}
-.hero p.lede{font-size:clamp(1.05rem,1.6vw,1.28rem);color:#e7f1e6;max-width:33ch;margin:0 0 30px}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
-.btn{display:inline-flex;align-items:center;gap:9px;font:600 1rem var(--sans);padding:14px 26px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:.25s;text-decoration:none}
-body.lang-ar .btn{font-family:var(--ar-sans)}
-.btn-primary{background:var(--blush);color:#fff;box-shadow:0 14px 30px -10px rgba(239,106,130,.6)}
-.btn-primary:hover{background:var(--blush-deep);transform:translateY(-2px)}
-.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.35)}
-.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
-.hero-art{display:flex;justify-content:center;align-items:center}
-.guava-svg{width:min(86%,420px);height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.35));animation:bob 7s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-16px) rotate(1deg)}}
-.scrollcue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:2;color:#cfe9d6;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.85}
-.scrollcue .mouse{width:22px;height:34px;border:2px solid #cfe9d6aa;border-radius:12px;position:relative}
-.scrollcue .mouse::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:2px;background:#cfe9d6;transform:translateX(-50%);animation:wheel 1.6s infinite}
-@keyframes wheel{0%{opacity:1;top:7px}100%{opacity:0;top:17px}}
-body.lang-ar .scrollcue{letter-spacing:normal;text-transform:none}
+.front{position:relative;z-index:2;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.front-plate{position:relative;display:flex;align-items:center;justify-content:center;padding:90px 30px 40px;background:linear-gradient(180deg,rgba(125,59,46,.05),transparent)}
+.front-plate img{max-height:80vh;width:auto;mix-blend-mode:multiply}
+body.dark .plate img,body.dark .front-plate img{mix-blend-mode:normal}
+.front-text{display:flex;flex-direction:column;justify-content:center;padding:90px clamp(28px,5vw,70px) 60px;text-align:center;border-inline-start:1px double var(--rule)}
+.front-rule{display:flex;align-items:center;gap:14px;color:var(--gold);justify-content:center;margin:14px 0}
+.front-rule .ln{height:1px;width:64px;background:var(--gold)}
+.eyebrow{font:600 .8rem var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--faint)}
+body.lang-ar .eyebrow{letter-spacing:normal;text-transform:none}
+.front h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.8rem,5vw,4.6rem);line-height:1;margin:.18em 0 .05em;font-style:italic;color:var(--ink)}
+body.lang-ar .front h1{font-family:var(--ar-serif);font-style:normal;line-height:1.25}
+.front .latin{font-family:var(--serif);font-size:1.5rem;letter-spacing:.05em;color:var(--accent)}
+.front .sub{font-size:1.18rem;color:var(--ink-soft);max-width:34ch;margin:18px auto 26px;font-style:italic}
+body.lang-ar .front .sub{font-style:normal}
+.front-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 1rem var(--body);padding:12px 26px;cursor:pointer;border:1px solid var(--ink);background:transparent;color:var(--ink);text-decoration:none;letter-spacing:.05em;transition:.2s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.solid{background:var(--accent);border-color:var(--accent);color:#f7efda}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink)}
+.colophon{margin-top:34px;font-size:.92rem;color:var(--faint);letter-spacing:.04em}
 
-/* ---------- generic section ---------- */
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
-.section{padding:clamp(64px,9vw,110px) 0}
-.sec-head{text-align:center;max-width:680px;margin:0 auto clamp(34px,5vw,58px)}
-.sec-kicker{font:600 .8rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--g700)}
-body.lang-ar .sec-kicker{letter-spacing:normal;text-transform:none;font-family:var(--ar-sans)}
-.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.1;letter-spacing:-.02em;margin:12px 0 14px}
-body.lang-ar .sec-head h2{font-family:var(--ar-serif);line-height:1.3}
-.sec-head p{color:var(--ink-soft);font-size:1.08rem;margin:0}
-.divider{height:46px;background-repeat:no-repeat;background-position:center;background-size:auto 100%;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40'><path d='M10 20h36c4-12 14-16 14-16s-6 12 4 16h36' fill='none' stroke='%232c9d63' stroke-width='2'/><circle cx='60' cy='20' r='4' fill='%23ef6a82'/></svg>")}
+.fleuron{font-family:var(--serif);font-size:1.6rem;color:var(--gold);text-align:center;letter-spacing:.4em;margin:0}
+.section{padding:clamp(60px,8vw,104px) 0;position:relative;z-index:2}
+.sec-head{text-align:center;max-width:680px;margin:0 auto clamp(30px,5vw,52px)}
+.sec-kicker{font:600 .78rem var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+body.lang-ar .sec-kicker{letter-spacing:normal;text-transform:none}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.4vw,3.3rem);line-height:1.06;margin:10px 0 8px;font-style:italic}
+body.lang-ar .sec-head h2{font-family:var(--ar-serif);font-style:normal}
+.sec-head p{color:var(--ink-soft);font-size:1.1rem;margin:0;font-style:italic}
+body.lang-ar .sec-head p{font-style:normal}
 
-/* ---------- roadmap grid ---------- */
-.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
-.rcard{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:var(--rad);padding:24px 22px 20px;box-shadow:var(--shadow);transition:.3s;overflow:hidden}
-.rcard::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--g600),var(--blush));opacity:0;transition:.3s}
-[dir="rtl"] .rcard::before{left:auto;right:0}
-.rcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--g300)}
-.rcard:hover::before{opacity:1}
-.rcard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.rcard-emoji{font-size:1.7rem}
-.rcard-num{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--seed);opacity:.55}
-.rcard h3{font-family:var(--serif);font-weight:600;font-size:1.22rem;line-height:1.25;margin:0 0 8px}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0;border:1px double var(--rule);background:var(--paper)}
+.rcard{position:relative;display:flex;flex-direction:column;padding:22px 24px;border:1px solid var(--line);margin:-0.5px;text-decoration:none;color:var(--ink);transition:.25s}
+.rcard:hover{background:rgba(125,59,46,.05)}
+.rcard-top{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.rcard-emoji{display:none}
+.rcard-num{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--accent);min-width:1.6em}
+.rcard h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.15;margin:0}
 body.lang-ar .rcard h3{font-family:var(--ar-sans);font-weight:700}
-.rcard p{color:var(--ink-soft);font-size:.97rem;margin:0 0 16px;flex:1}
-.rcard-go{font:600 .9rem var(--sans);color:var(--g700)}
-body.lang-ar .rcard-go{font-family:var(--ar-sans)}
+.rcard p{color:var(--ink-soft);font-size:1rem;margin:.2em 0 0;flex:1}
+.rcard-go{margin-top:12px;font:italic 600 .95rem var(--serif);color:var(--accent)}
 
-/* ---------- one-pager ---------- */
-.onepager{background:linear-gradient(165deg,#103f2c,#0c3322);color:#f2efe3;position:relative;overflow:hidden}
-.onepager .leafpat{position:absolute;inset:0;opacity:.05}
-.onepager .sec-kicker{color:#9bd9b4}
-.onepager .sec-head h2{color:#fff}
-.onepager .sec-head p{color:#cfe2d4}
-.opgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;position:relative;z-index:2}
-.opcard{background:rgba(255,255,255,.96);color:var(--ink);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-lg);border-top:5px solid var(--g600)}
-.opcard h3{font:700 1.05rem var(--sans);margin:0 0 10px;color:var(--g900)}
+.onepager{position:relative;z-index:2}
+.onepager .opwrap{background:var(--paper);border:1px double var(--rule);box-shadow:var(--shadow);padding:clamp(22px,4vw,46px)}
+.opnote{max-width:760px;margin:0 auto 22px;text-align:center;font-style:italic;color:var(--ink-soft);font-size:1.08rem}
+.opnote .ar{font-style:normal}
+.opgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0}
+.opcard{padding:18px 22px;border:1px solid var(--line);margin:-0.5px}
+.opcard h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0 0 8px;color:var(--accent)}
 body.lang-ar .opcard h3{font-family:var(--ar-sans)}
-.opcard ul{margin:0;padding-inline-start:18px}
-.opcard li{margin-bottom:7px;font-size:.93rem;line-height:1.55}
+.opcard ul{margin:0;padding-inline-start:18px} .opcard li{margin-bottom:6px;font-size:.98rem;line-height:1.5}
 .opcard ul.ar{font-family:var(--ar-sans)}
-.op-start{border-color:var(--g600)} .op-soil{border-color:var(--blue)} .op-winter{border-color:var(--seed)}
-.op-fert{border-color:var(--teal)} .op-pest{border-color:var(--red)} .op-post{border-color:var(--purple)} .op-contact{border-color:#34403b}
-.op-winter,.op-pest{box-shadow:0 0 0 2px #ffffff22,var(--shadow-lg)}
-.opnote{position:relative;z-index:2;margin:0 auto 26px;max-width:760px;text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 20px;color:#eafff0;font-size:1rem}
-.opnote .ar{font-family:var(--ar-sans)}
 
-/* ---------- guide (TOC + chapters) ---------- */
-.guide{background:var(--bg)}
-.guide-wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px);display:grid;grid-template-columns:262px 1fr;gap:46px;align-items:start}
-.toc{position:sticky;top:90px;align-self:start;max-height:calc(100vh - 110px);overflow:auto;padding:6px 0 30px}
-.toc-title{font:600 .76rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px;padding-inline-start:14px}
-body.lang-ar .toc-title{letter-spacing:normal;text-transform:none;font-family:var(--ar-sans)}
-.toc-link{position:relative;display:flex;align-items:center;gap:11px;padding:8px 14px;border-radius:11px;color:var(--ink-soft);transition:.2s;font-size:.95rem;line-height:1.25}
-.toc-link:hover{background:var(--g100);color:var(--g800)}
-.toc-link.active{background:var(--paper);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
-.toc-num{font-family:var(--serif);font-weight:700;font-size:.92rem;color:var(--seed);min-width:22px}
-.toc-link.active .toc-num{color:var(--blush)}
+.guide-wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,52px);display:grid;grid-template-columns:250px 1fr;gap:50px;align-items:start;position:relative;z-index:2}
+.toc{position:sticky;top:88px;align-self:start;max-height:calc(100vh - 108px);overflow:auto;padding:6px 0 30px}
+.toc-title{font:600 .74rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;padding-inline-start:14px}
+body.lang-ar .toc-title{letter-spacing:normal;text-transform:none}
+.toc-link{display:flex;align-items:baseline;gap:10px;padding:7px 14px;color:var(--ink-soft);font-size:1.02rem;border-inline-start:1px solid transparent;transition:.2s}
+.toc-link:hover{color:var(--accent)}
+.toc-link.active{color:var(--ink);border-inline-start:1px solid var(--accent);font-style:italic}
+.toc-num{font-family:var(--serif);font-style:italic;color:var(--accent);min-width:22px}
 .toc-txt .ar{font-family:var(--ar-sans)}
-
 .chapters{min-width:0}
-.chapter{scroll-margin-top:92px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(26px,4vw,52px);margin-bottom:30px;box-shadow:var(--shadow)}
-.ch-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
-.seed{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff,#f7ecd4 40%,var(--seed));color:#6b4a08;font-family:var(--serif);font-weight:700;font-size:1.05rem;box-shadow:inset 0 0 0 1px #00000010}
-.ch-emoji{font-size:1.5rem}
-.ch-kicker{font:600 .76rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--g700)}
-body.lang-ar .ch-kicker{letter-spacing:normal;text-transform:none;font-family:var(--ar-sans)}
+.chapter{scroll-margin-top:88px;margin-bottom:64px;position:relative}
+.runhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:18px;font-style:italic;color:var(--faint);font-size:.92rem}
+.runhead .ar{font-family:var(--ar-sans);font-style:normal}
+.ch-head{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
+.seed{font-family:var(--serif);font-style:italic;font-size:2.2rem;color:var(--accent)}
+.ch-emoji{display:none}
+.ch-kicker{font:600 .74rem var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+body.lang-ar .ch-kicker{letter-spacing:normal;text-transform:none}
 
-/* prose */
-.prose{font-size:1.02rem}
-.prose.ar{font-family:var(--ar-sans);font-size:1.08rem;line-height:1.95}
-.prose h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.12;letter-spacing:-.01em;margin:.1em 0 .5em}
-.prose.ar h1{font-family:var(--ar-serif);line-height:1.35}
-.prose h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;margin:1.7em 0 .5em;padding-top:.4em;border-top:1px solid var(--line)}
+.plate{margin:6px 0 30px;text-align:center}
+.plate .mat{display:inline-block;max-width:100%}
+.plate img{display:block;max-width:100%;max-height:600px;width:auto;margin:0 auto;mix-blend-mode:multiply}
+.plate figcaption{margin-top:10px;font-family:var(--body);font-style:italic;font-size:.95rem;color:var(--ink-soft);max-width:46ch;margin-inline:auto;line-height:1.45}
+.plate figcaption .fig{font-weight:600;font-style:normal;color:var(--accent)}
+.plate figcaption .ar{font-family:var(--ar-sans);font-style:normal}
+
+.prose{position:relative;z-index:2;font-size:1.12rem;max-width:var(--read);margin-inline:auto}
+.prose.ar{font-family:var(--ar-sans);font-size:1.15rem;line-height:1.95}
+.prose h1{font-family:var(--serif);font-weight:600;font-style:italic;font-size:clamp(2rem,3.6vw,2.7rem);line-height:1.08;margin:.1em 0 .5em}
+.prose.ar h1{font-family:var(--ar-serif);font-style:normal;line-height:1.3}
+.prose h2{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:1.7em 0 .45em;color:var(--accent)}
 .prose.ar h2{font-family:var(--ar-serif)}
-.prose h3{font-weight:700;font-size:1.18rem;margin:1.4em 0 .4em;color:var(--g800)}
+.prose h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;margin:1.4em 0 .35em;color:var(--ink)}
 .prose p{margin:.7em 0}
-.prose a{color:var(--g700);text-decoration:underline;text-decoration-color:#bfe0cc;text-underline-offset:3px;transition:.2s}
-.prose a:hover{color:var(--blush-deep);text-decoration-color:var(--blush)}
-.prose a.xref{background:var(--g100);color:var(--g800);padding:1px 7px;border-radius:6px;text-decoration:none;font-weight:600;white-space:nowrap}
-.prose a.xref:hover{background:var(--blush-soft);color:var(--blush-deep)}
-.prose ul,.prose ol{margin:.7em 0;padding-inline-start:1.3em}
-.prose li{margin:.34em 0}
-.prose strong{color:var(--g900)}
-.prose blockquote{margin:1.2em 0;padding:14px 20px;background:linear-gradient(var(--g100),var(--paper));border-inline-start:4px solid var(--g600);border-radius:0 14px 14px 0;color:var(--ink)}
-[dir="rtl"] .prose blockquote{border-radius:14px 0 0 14px}
-.prose blockquote p{margin:.3em 0}
-.prose code{background:var(--code-bg);padding:2px 6px;border-radius:6px;font-size:.88em;font-family:ui-monospace,Menlo,Consolas,monospace}
-.prose pre{background:#0e3a28;color:#dff3e6;padding:18px 20px;border-radius:14px;overflow:auto;font-size:.84rem;line-height:1.55;box-shadow:var(--shadow)}
-.prose pre code{background:transparent;padding:0;color:inherit}
-.prose hr{border:0;height:1px;background:var(--line);margin:1.8em 0}
-.tw{overflow-x:auto;margin:1.1em 0;border:1px solid var(--line);border-radius:14px}
-.prose table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:460px}
-.prose th{background:var(--g800);color:#fff;text-align:start;padding:11px 14px;font-weight:600}
-.prose td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+body.lang-en .prose>p:first-of-type::first-letter{font-family:var(--serif);font-weight:400;font-size:3.8em;line-height:.74;float:left;margin:.02em .12em -.06em 0;color:var(--accent)}
+.prose a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.prose a:hover{text-decoration-color:var(--accent)}
+.prose a.xref{font-style:italic;text-decoration:none;border-bottom:1px solid var(--accent);white-space:nowrap}
+.prose ul,.prose ol{margin:.7em 0;padding-inline-start:1.4em}
+.prose li{margin:.32em 0} .prose li::marker{color:var(--accent)}
+.prose strong{color:var(--ink);font-weight:600}
+.prose blockquote{margin:1.3em 0;padding:6px 24px;border-inline-start:2px solid var(--accent);font-style:italic;color:var(--ink)}
+.prose.ar blockquote{font-style:normal}
+.prose code{background:var(--code-bg);padding:1px 6px;font-size:.86em;font-family:ui-monospace,Menlo,Consolas,monospace}
+.prose pre{background:var(--code-bg);color:var(--ink);padding:16px 18px;border:1px solid var(--rule);overflow:auto;font-size:.82rem;line-height:1.5}
+.prose pre code{background:transparent;padding:0}
+.prose hr{border:0;text-align:center;margin:1.6em 0}
+.prose hr::before{content:"❦";color:var(--gold);font-size:1.2rem}
+.tw{overflow-x:auto;margin:1.1em 0;border:1px solid var(--rule)}
+.prose table{border-collapse:collapse;width:100%;font-size:.96rem;min-width:460px}
+.prose th{background:var(--accent);color:#f7efda;text-align:start;padding:10px 13px;font-weight:600;font-family:var(--body)}
+.prose td{padding:9px 13px;border-top:1px solid var(--line);vertical-align:top}
 .prose tr:nth-child(even) td{background:var(--row-alt)}
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.guava-svg{animation:none}.scrollcue .mouse::after{animation:none}}
 .no-js .reveal{opacity:1 !important;transform:none !important}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
-/* footer */
-footer{background:#0c3322;color:#cfe2d4;padding:60px clamp(20px,5vw,48px) 40px;text-align:center}
-footer .fbrand{font-family:var(--serif);font-size:1.5rem;color:#fff;margin-bottom:8px}
-body.lang-ar footer .fbrand{font-family:var(--ar-serif)}
-footer .seedline{font-size:1.3rem;letter-spacing:.4em;margin:14px 0;color:#2c9d63}
-footer p{margin:6px 0;font-size:.92rem;opacity:.9}
+footer{position:relative;z-index:2;border-top:1px double var(--rule);padding:50px clamp(20px,5vw,52px) 44px;text-align:center;color:var(--ink-soft)}
+footer .fleuron{margin-bottom:12px}
+footer .fbrand{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--ink);margin:4px 0}
+body.lang-ar footer .fbrand{font-family:var(--ar-serif);font-style:normal}
+footer p{margin:6px auto;max-width:640px;font-size:.96rem}
 footer .ar{font-family:var(--ar-sans)}
+footer .src{font-size:.8rem;color:var(--faint);margin-top:16px;font-style:italic}
 
-/* drawer (mobile TOC) */
-.scrim{position:fixed;inset:0;background:rgba(10,40,28,.5);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:.3s;z-index:130}
+.scrim{position:fixed;inset:0;background:rgba(30,24,10,.5);opacity:0;visibility:hidden;transition:.3s;z-index:130}
 .scrim.open{opacity:1;visibility:visible}
-.drawer{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(82vw,330px);background:var(--bg);z-index:140;transform:translateX(-105%);transition:.35s;box-shadow:var(--shadow-lg);overflow:auto;padding:22px 18px}
+.drawer{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(82vw,320px);background:var(--paper);z-index:140;transform:translateX(-105%);transition:.35s;box-shadow:var(--shadow);overflow:auto;padding:22px 18px;border-inline-end:1px double var(--rule)}
 [dir="rtl"] .drawer{transform:translateX(105%)}
 .drawer.open{transform:none}
-.drawer .dclose{float:inline-end;border:0;background:var(--g100);width:38px;height:38px;border-radius:10px;font-size:1.1rem;cursor:pointer;color:var(--g800)}
+.drawer .dclose{float:inline-end;border:1px solid var(--rule);background:var(--bg);width:36px;height:36px;cursor:pointer;color:var(--ink)}
 
-/* responsive */
 @media(max-width:980px){
-  .hero-inner{grid-template-columns:1fr;text-align:center;padding-top:130px}
-  .hero p.lede{margin-inline:auto}
-  .hero-cta{justify-content:center}
-  .hero-art{order:-1;margin-bottom:6px}
-  .guava-svg{width:min(64%,280px)}
-  .guide-wrap{grid-template-columns:1fr;gap:0}
-  .toc.desktop{display:none}
-  .menu-btn{display:inline-flex}
+  .front{grid-template-columns:1fr;min-height:auto}
+  .front-plate{padding:96px 24px 10px}.front-plate img{max-height:52vh}
+  .front-text{border-inline-start:0;border-top:1px double var(--rule);padding-top:30px}
+  .guide-wrap{grid-template-columns:1fr;gap:0}.toc.desktop{display:none}.menu-btn{display:inline-flex}
 }
 @media(min-width:981px){.drawer,.scrim{display:none}}
-@media(max-width:560px){
-  body{font-size:16px}
-  .chapter{padding:22px 18px;border-radius:18px}
-  .hero h1{font-size:2.4rem}
-}
-
-/* ---------- dark mode ---------- */
-body.dark{
-  --bg:#0f140e; --paper:#172017; --ink:#e9efe6; --ink-soft:#a4b4a8; --line:#2a352c;
-  --g100:#1b291f; --blush-soft:#3a2128; --seed-soft:#2a2418;
-  --bar-bg:rgba(15,20,14,.86); --code-bg:#202820; --row-alt:#1b231b;
-  --shadow:0 10px 30px -12px rgba(0,0,0,.55); --shadow-lg:0 30px 60px -20px rgba(0,0,0,.6);
-}
-body.dark .hero{background:linear-gradient(165deg,#0c3a29 0%,#0a3325 48%,#07251a 100%)}
-body.dark .prose h3{color:var(--g300)}
-body.dark .prose strong{color:#e7f0e6}
-body.dark .prose a{color:#74c694;text-decoration-color:#2c9d6355}
-body.dark .prose a:hover{color:var(--blush)}
-body.dark .prose a.xref{background:var(--g100);color:var(--g300)}
-body.dark .sec-kicker,body.dark .ch-kicker{color:var(--g300)}
-body.dark .divider{filter:brightness(1.3)}
-body.dark .opcard{color:#1f2a24}
+@media(max-width:560px){body{font-size:18px}.front h1{font-size:2.6rem}}
 </style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body class="lang-en">
 <div class="progress"><i id="prog"></i></div>
-
 <header class="bar" id="bar">
-  <a class="brand" href="#top"><span class="dot"></span><span class="en">Guava&nbsp;Mastery</span><span class="ar">إتقان&nbsp;الجوافة</span></a>
-  <div class="bar-right"><a class="iconbtn edsw" href="book.html" title="Switch to the classic book edition" style="width:auto;padding:0 13px;text-decoration:none;letter-spacing:.03em;white-space:nowrap;gap:5px">❦&nbsp;Book</a>
-    <div class="langtog" role="group" aria-label="Language">
-      <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
-      <button id="btn-ar" onclick="setLang('ar')"><span class="ar">ع</span><span class="en">ع</span></button>
-    </div>
-    <button class="iconbtn" id="theme-btn" aria-label="Toggle dark mode" onclick="toggleTheme()">🌙</button>
-    <button class="menu-btn" aria-label="Chapters" onclick="openDrawer()">☰</button>
+  <a class="brand" href="#top"><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></a>
+  <div class="bar-right"><a class="iconbtn edsw" href="index.html" title="Switch to the modern edition" style="width:auto;padding:0 13px;text-decoration:none;letter-spacing:.03em;white-space:nowrap;gap:5px">✦&nbsp;Modern</a>
+    <div class="langtog"><button id="btn-en" class="on" onclick="setLang('en')">EN</button><button id="btn-ar" onclick="setLang('ar')">ع</button></div>
+    <button class="iconbtn" id="theme-btn" aria-label="Theme" onclick="toggleTheme()">🌙</button>
+    <button class="iconbtn menu-btn" aria-label="Chapters" onclick="openDrawer()">☰</button>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
-  <div class="leafpat"></div>
-  <div class="hero-inner">
-    <div>
-      <span class="eyebrow"><span class="en">🌳 Kafr El Dawwar · Behira · Nile Delta</span><span class="ar">🌳 كفر الدوار · البحيرة · دلتا النيل</span></span>
-      <h1>
-        <span class="en">From folk wisdom to a <span class="accent">world-class</span> guava grower.</span>
-        <span class="ar">من حكمة الفلاحة إلى مزارع جوافة <span class="accent">عالمي المستوى</span>.</span>
-      </h1>
-      <p class="lede">
-        <span class="en">A complete, beautiful roadmap — soil to science to season to sale. Built from zero, tuned to your land, and yours to master.</span>
-        <span class="ar">خريطة طريق كاملة وجميلة — من التربة إلى العلم إلى الموسم إلى البيع. مبنيّة من الصفر، مضبوطة على أرضك، ولك أن تتقنها.</span>
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#roadmap"><span class="en">Explore the roadmap</span><span class="ar">استكشف الخريطة</span></a>
-        <a class="btn btn-ghost" href="#onepager"><span class="en">The one-pager</span><span class="ar">الدليل الميداني</span></a>
-      </div>
-    </div>
-    <div class="hero-art">
-      <!-- guava cross-section -->
-      <svg class="guava-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <radialGradient id="skin" cx="38%" cy="32%" r="75%">
-            <stop offset="0%" stop-color="#d9e86a"/><stop offset="55%" stop-color="#bcd95a"/><stop offset="100%" stop-color="#8fae3e"/>
-          </radialGradient>
-          <radialGradient id="flesh" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#ffe1e7"/><stop offset="60%" stop-color="#f7a7b8"/><stop offset="100%" stop-color="#ef7d93"/>
-          </radialGradient>
-          <radialGradient id="core" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#fff3d6"/><stop offset="100%" stop-color="#f6d79a"/>
-          </radialGradient>
-        </defs>
-        <!-- leaves -->
-        <g transform="translate(150 36)">
-          <path d="M0 0C34 6 52 30 44 64 12 58 -6 34 0 0Z" fill="#2c9d63"/>
-          <path d="M0 0C-34 6 -52 30 -44 64 -12 58 6 34 0 0Z" fill="#1f7a4d"/>
-          <path d="M0 2C2 24 2 44 0 64" stroke="#0d3a28" stroke-width="2" fill="none"/>
-        </g>
-        <!-- fruit body -->
-        <circle cx="150" cy="180" r="104" fill="url(#skin)"/>
-        <circle cx="150" cy="180" r="104" fill="none" stroke="#6f8a2f" stroke-width="3" opacity=".5"/>
-        <circle cx="150" cy="180" r="80" fill="url(#flesh)"/>
-        <circle cx="150" cy="180" r="42" fill="url(#core)"/>
-        <!-- seeds -->
-        <g fill="#caa24a">
-          <ellipse cx="150" cy="150" rx="5.5" ry="7"/><ellipse cx="170" cy="160" rx="5.5" ry="7" transform="rotate(20 170 160)"/>
-          <ellipse cx="176" cy="184" rx="5.5" ry="7" transform="rotate(50 176 184)"/><ellipse cx="166" cy="206" rx="5.5" ry="7" transform="rotate(80 166 206)"/>
-          <ellipse cx="144" cy="214" rx="5.5" ry="7" transform="rotate(110 144 214)"/><ellipse cx="126" cy="200" rx="5.5" ry="7" transform="rotate(140 126 200)"/>
-          <ellipse cx="124" cy="174" rx="5.5" ry="7" transform="rotate(170 124 174)"/><ellipse cx="134" cy="156" rx="5.5" ry="7" transform="rotate(200 134 156)"/>
-          <ellipse cx="150" cy="180" rx="5" ry="6.5"/>
-        </g>
-        <circle cx="116" cy="142" r="10" fill="#ffffff" opacity=".28"/>
-      </svg>
-    </div>
+<section class="front" id="top">
+  <div class="front-plate">
+    <img src="plates/descourtilz.jpg" alt="Antique chromolithograph of Psidium guajava from Blanco's Flora de Filipinas">
   </div>
-  <a class="scrollcue" href="#roadmap"><span class="mouse"></span><span class="en">Scroll</span><span class="ar">انزل</span></a>
+  <div class="front-text">
+    <span class="eyebrow"><span class="en">Kafr el-Dawwar · Behira · the Nile Delta</span><span class="ar">كفر الدوار · البحيرة · دلتا النيل</span></span>
+    <h1><span class="en">The Guava</span><span class="ar">الجوافة</span></h1>
+    <div class="front-rule"><span class="ln"></span>❧<span class="ln"></span></div>
+    <div class="latin">Psidium guajava L.</div>
+    <p class="sub"><span class="en">A complete husbandry, from root to ripened fruit — gathered from the world's best science and set, plate by plate, before the grower.</span><span class="ar">دليل زراعة كامل، من الجذر إلى الثمرة الناضجة — مجموع من أفضل علوم العالم، ومرتّب لوحةً بلوحة بين يدي المزارع.</span></p>
+    <div class="front-cta">
+      <a class="btn solid" href="#contents"><span class="en">Table of contents</span><span class="ar">فهرس المحتويات</span></a>
+      <a class="btn" href="#onepager"><span class="en">The field plate</span><span class="ar">الدليل الميداني</span></a>
+    </div>
+    <div class="colophon"><span class="en">Illustrated with antique botanical plates · Bilingual EN · ع</span><span class="ar">مزيّن بلوحات نباتية تاريخية · بالعربية والإنجليزية</span></div>
+  </div>
 </section>
 
-<!-- ROADMAP -->
-<section class="section" id="roadmap">
+<section class="section" id="contents">
   <div class="wrap">
+    <p class="fleuron">❧</p>
     <div class="sec-head reveal">
-      <div class="sec-kicker"><span class="en">The Journey · 12 Chapters</span><span class="ar">الرحلة · ١٢ فصلًا</span></div>
-      <h2><span class="en">One roadmap, from the ground up</span><span class="ar">خريطة واحدة، من الأرض إلى القمّة</span></h2>
-      <p><span class="en">Each chapter teaches the <em>why</em> behind the <em>how</em>. Read top to bottom, or jump to what you need today.</span>
-         <span class="ar">كل فصل يعلّمك <em>لماذا</em> وراء <em>كيف</em>. اقرأ من الأعلى للأسفل، أو اقفز لما تحتاجه اليوم.</span></p>
+      <div class="sec-kicker"><span class="en">The Twelve Chapters</span><span class="ar">الفصول الاثنا عشر</span></div>
+      <h2><span class="en">Table of contents</span><span class="ar">فهرس المحتويات</span></h2>
+      <p><span class="en">Each chapter teaches the reason behind the practice. Begin anywhere.</span><span class="ar">كل فصل يعلّمك السبب وراء الممارسة. ابدأ من أي مكان.</span></p>
     </div>
-    <div class="rgrid">
-      <a class="rcard reveal" href="#ch00"><div class="rcard-top"><span class="rcard-emoji">🧭</span><span class="rcard-num">00</span></div><h3><span class="en">Master Roadmap</span><span class="ar">الخريطة الرئيسية</span></h3><p><span class="en">The map, the philosophy, and how to move through it.</span><span class="ar">الخريطة والفلسفة وكيفية التحرّك خلالها.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
+    <div class="rgrid reveal"><a class="rcard reveal" href="#ch00"><div class="rcard-top"><span class="rcard-emoji">🧭</span><span class="rcard-num">00</span></div><h3><span class="en">Master Roadmap</span><span class="ar">الخريطة الرئيسية</span></h3><p><span class="en">The map, the philosophy, and how to move through it.</span><span class="ar">الخريطة والفلسفة وكيفية التحرّك خلالها.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
 <a class="rcard reveal" href="#ch01"><div class="rcard-top"><span class="rcard-emoji">🌱</span><span class="rcard-num">01</span></div><h3><span class="en">Foundations & How to Learn</span><span class="ar">الأساسيات وكيفية التعلّم</span></h3><p><span class="en">Soil, plants, nutrients & water — from absolute zero.</span><span class="ar">التربة والنبات والعناصر والماء — من الصفر تمامًا.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
 <a class="rcard reveal" href="#ch02"><div class="rcard-top"><span class="rcard-emoji">💧</span><span class="rcard-num">02</span></div><h3><span class="en">Soil, Water & Irrigation</span><span class="ar">التربة والمياه والري</span></h3><p><span class="en">Delta clay, salinity, drip conversion & smart scheduling.</span><span class="ar">طين الدلتا والملوحة والتحوّل للتنقيط والجدولة الذكية.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
 <a class="rcard reveal" href="#ch03"><div class="rcard-top"><span class="rcard-emoji">🌳</span><span class="rcard-num">03</span></div><h3><span class="en">Guava Cultivation Science</span><span class="ar">علم زراعة الجوافة</span></h3><p><span class="en">Varieties, propagation, pruning & the winter-crop skill.</span><span class="ar">الأصناف والإكثار والتقليم ومهارة المحصول الشتوي.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
@@ -339,42 +239,35 @@ body.dark .opcard{color:#1f2a24}
 <a class="rcard reveal" href="#ch08"><div class="rcard-top"><span class="rcard-emoji">💰</span><span class="rcard-num">08</span></div><h3><span class="en">Business, Marketing & Export</span><span class="ar">الأعمال والتسويق والتصدير</span></h3><p><span class="en">Know your real profit; sell smarter; reach export.</span><span class="ar">اعرف ربحك الحقيقي؛ بِع بذكاء؛ وصِل للتصدير.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
 <a class="rcard reveal" href="#ch09"><div class="rcard-top"><span class="rcard-emoji">🇪🇬</span><span class="rcard-num">09</span></div><h3><span class="en">Egypt Local Hub</span><span class="ar">المركز المحلي في مصر</span></h3><p><span class="en">Plug into ARC, universities, labs & farmer communities.</span><span class="ar">اتّصل بمركز البحوث والجامعات والمعامل والمجتمعات.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
 <a class="rcard reveal" href="#ch10"><div class="rcard-top"><span class="rcard-emoji">📚</span><span class="rcard-num">10</span></div><h3><span class="en">Resource Library</span><span class="ar">مكتبة المصادر</span></h3><p><span class="en">The best books, channels, courses & certifications.</span><span class="ar">أفضل الكتب والقنوات والدورات والشهادات.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
-<a class="rcard reveal" href="#ch11"><div class="rcard-top"><span class="rcard-emoji">✅</span><span class="rcard-num">11</span></div><h3><span class="en">Progress Tracker & Season Calendar</span><span class="ar">متابعة التقدّم والتقويم الموسمي</span></h3><p><span class="en">Milestones, self-checks & a month-by-month calendar.</span><span class="ar">مؤشّرات الإنجاز وتقييم ذاتي وتقويم شهرًا بشهر.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a>
-    </div>
+<a class="rcard reveal" href="#ch11"><div class="rcard-top"><span class="rcard-emoji">✅</span><span class="rcard-num">11</span></div><h3><span class="en">Progress Tracker & Season Calendar</span><span class="ar">متابعة التقدّم والتقويم الموسمي</span></h3><p><span class="en">Milestones, self-checks & a month-by-month calendar.</span><span class="ar">مؤشّرات الإنجاز وتقييم ذاتي وتقويم شهرًا بشهر.</span></p><span class="rcard-go"><span class="en">Open →</span><span class="ar">افتح ←</span></span></a></div>
   </div>
 </section>
 
-<!-- ONE PAGER -->
 <section class="section onepager" id="onepager">
-  <div class="leafpat"></div>
   <div class="wrap">
+    <p class="fleuron">❧</p>
     <div class="sec-head reveal">
-      <div class="sec-kicker"><span class="en">Field Cheat-Sheet</span><span class="ar">الدليل الميداني</span></div>
-      <h2><span class="en">The whole plan, on one page</span><span class="ar">الخطة كلها في صفحة واحدة</span></h2>
-      <p><span class="en">Print it and pin it in the orchard. The two starred boxes are the highest-impact skills.</span>
-         <span class="ar">اطبعه وعلّقه في المزرعة. الصندوقان المميّزان بنجمة هما أعلى المهارات أثرًا.</span></p>
+      <div class="sec-kicker"><span class="en">Appendix · For the Field</span><span class="ar">ملحق · للحقل</span></div>
+      <h2><span class="en">The whole plan, on one leaf</span><span class="ar">الخطة كلها في صفحة</span></h2>
     </div>
-    <div class="opnote reveal">
-      <span class="en"><b>Golden rule:</b> start with a soil &amp; water test, write everything down. Your top skill is preparing the <b>winter crop</b>; your worst enemy is the <b>fruit fly</b>.</span>
-      <span class="ar"><b>القاعدة الذهبية:</b> ابدأ بتحليل تربة وماء، واكتب كل شيء. مهارتك الأهم تحضير <b>المحصول الشتوي</b>، وعدوّك الأول <b>ذبابة الفاكهة</b>.</span>
-    </div>
-    <div class="opgrid">
-      <div class="opcard op-start reveal"><h3><span class="en">① Start now (free)</span><span class="ar">① ابدأ الآن (مجانًا)</span></h3><ul class="en"><li>Test your <b>soil & irrigation water</b> before any decision (Damanhour Univ. / Saba Basha / Soil &amp; Water Inst.).</li><li>Register at the <b>Kafr El Dawwar agriculture office</b> and ask for the horticulture agent.</li><li>Keep a <b>farm notebook</b>: sales, costs, sprays (for PHI), trap counts.</li></ul><ul class="ar" dir="rtl"><li>حلّل <b>التربة ومياه الري</b> قبل أي قرار (جامعة دمنهور / سابا باشا / معهد الأراضي).</li><li>سجّل في <b>إدارة الزراعة بكفر الدوار</b> واطلب مرشد البساتين.</li><li>امسك <b>دفتر مزرعة</b>: المبيعات، التكاليف، الرشّات (لفترة الأمان)، أعداد المصائد.</li></ul></div>
+    <div class="opwrap reveal">
+      <p class="opnote"><span class="en"><b>Golden rule:</b> begin with a soil &amp; water test and keep a written record. Your highest skill is the <b>winter crop</b>; your chief adversary is the <b>fruit fly</b>.</span><span class="ar"><b>القاعدة الذهبية:</b> ابدأ بتحليل تربة وماء واحتفظ بسجلّ مكتوب. أعلى مهاراتك <b>المحصول الشتوي</b>، وعدوّك الأول <b>ذبابة الفاكهة</b>.</span></p>
+      <div class="opgrid"><div class="opcard op-start reveal"><h3><span class="en">① Start now (free)</span><span class="ar">① ابدأ الآن (مجانًا)</span></h3><ul class="en"><li>Test your <b>soil & irrigation water</b> before any decision (Damanhour Univ. / Saba Basha / Soil &amp; Water Inst.).</li><li>Register at the <b>Kafr El Dawwar agriculture office</b> and ask for the horticulture agent.</li><li>Keep a <b>farm notebook</b>: sales, costs, sprays (for PHI), trap counts.</li></ul><ul class="ar" dir="rtl"><li>حلّل <b>التربة ومياه الري</b> قبل أي قرار (جامعة دمنهور / سابا باشا / معهد الأراضي).</li><li>سجّل في <b>إدارة الزراعة بكفر الدوار</b> واطلب مرشد البساتين.</li><li>امسك <b>دفتر مزرعة</b>: المبيعات، التكاليف، الرشّات (لفترة الأمان)، أعداد المصائد.</li></ul></div>
 <div class="opcard op-soil reveal"><h3><span class="en">② Soil & water (heavy clay + salt)</span><span class="ar">② التربة والري (طينية ثقيلة + ملوحة)</span></h3><ul class="en"><li>Switch from flood to <b>drip</b> — saves ~90% and pushes salt away from roots.</li><li>Plant in the <b>lower third of the ridge</b> — salt gathers on top.</li><li>For salt/sodium: <b>gypsum → leach → working drains</b> (in that order).</li><li><b>Mulch</b> the soil to cut salt rise & hold moisture.</li><li>Add decomposed manure (~10 m³/feddan) yearly to improve the clay.</li></ul><ul class="ar" dir="rtl"><li>حوّل من الغمر إلى <b>التنقيط</b> — يوفّر ~٩٠٪ ويُبعِد الملح عن الجذور.</li><li>ازرع في <b>الثلث الأسفل من المصطبة</b> — الملح يتجمّع بالأعلى.</li><li>للملوحة/الصوديوم: <b>جبس ← غسيل ← مصارف شغّالة</b> (بهذا الترتيب).</li><li><b>غطِّ التربة (مالش)</b> لتقليل صعود الملح وحفظ الرطوبة.</li><li>أضِف سماد بلدي متحلّل (~١٠ م³/فدان) سنويًا لتحسين الطين.</li></ul></div>
 <div class="opcard op-winter reveal"><h3><span class="en">★ ③ The winter crop — top skill</span><span class="ar">★ ③ المحصول الشتوي — أهم مهارة</span></h3><ul class="en"><li><b>Higher price + better quality + fewer pests</b> than the summer crop.</li><li><b>Late March:</b> withhold irrigation ~4 months until leaves drop (takbees).</li><li><b>Apr–May:</b> spray <b>urea 10–15%</b> to remove the poor summer bloom (2 sprays ~15 days apart).</li><li><b>July:</b> plough + manure + fertilize + <b>resume irrigation</b> → a winter flush.</li><li>For size & quality: <b>paclobutrazol ~500 ppm</b> and/or <b>GA₃ 75–150 ppm</b>.</li><li>Trial on a small block first, then compare.</li></ul><ul class="ar" dir="rtl"><li><b>سعر أعلى + جودة أفضل + آفات أقل</b> من المحصول الصيفي.</li><li><b>أواخر مارس:</b> امنع الري ~٤ أشهر حتى تسقط الأوراق (التكبيس).</li><li><b>أبريل–مايو:</b> رش <b>يوريا ١٠–١٥٪</b> لإزالة الإزهار الصيفي الرديء (رشّتان كل ~١٥ يوم).</li><li><b>يوليو:</b> احرث + سماد بلدي + تسميد + <b>أعد الري</b> ← اندفاع شتوي.</li><li>للحجم والجودة: <b>باكلوبوترازول ~٥٠٠ جزء/مليون</b> و/أو <b>جبريلين ٧٥–١٥٠ جزء/مليون</b>.</li><li>جرّب على قطعة صغيرة أولًا ثم قارن.</li></ul></div>
 <div class="opcard op-fert reveal"><h3><span class="en">④ Fertilizing (alkaline soil)</span><span class="ar">④ التسميد (تربة قلوية)</span></h3><ul class="en"><li>Bearing trees: <b>high potassium</b> at fruit set & sizing (size + sweetness).</li><li><b>Foliar Zn + Fe + B</b> 2–3× — they lock up in alkaline soil.</li><li>Best: <b>fertigation</b> — little and often, by growth stage.</li></ul><ul class="ar" dir="rtl"><li>الأشجار المثمرة: <b>بوتاسيوم عالٍ</b> وقت العقد والتكبير (حجم + حلاوة).</li><li><b>رش زنك + حديد + بورون</b> ٢–٣ مرات — تُقفَل في التربة القلوية.</li><li>الأفضل: <b>الرسمدة</b> — قليلًا ومتكرّرًا حسب المرحلة.</li></ul></div>
 <div class="opcard op-pest reveal"><h3><span class="en">★ ⑤ Fruit fly (enemy #1)</span><span class="ar">★ ⑤ ذبابة الفاكهة (العدو الأول)</span></h3><ul class="en"><li>Cause of most “wormy fruit” (~70–80% of loss).</li><li><b>Collect & bury</b> (≥50 cm) every fallen/stung fruit <b>daily</b>.</li><li>Hang <b>methyl-eugenol traps</b> (yellow, triangular, in shade) & monitor.</li><li><b>GF-120 bait</b> (spinosad): spot-spray every 7–14 days when flies appear.</li><li><b>Bag fruit</b> at marble size to protect premium/export.</li><li>After harvest: <b>plough & flood</b> the soil to kill pupae.</li><li>Respect the <b>pre-harvest interval</b>; avoid chlorpyrifos (banned, ruins export).</li></ul><ul class="ar" dir="rtl"><li>سبب أغلب «الدود» (~٧٠–٨٠٪ من الخسارة).</li><li><b>اجمع وادفن</b> (≥٥٠ سم) كل ثمرة ساقطة/ملسوعة <b>يوميًا</b>.</li><li>علّق <b>مصائد ميثيل أوجينول</b> (صفراء مثلثة في الظل) وراقب.</li><li><b>طُعم GF-120</b> (سبينوساد): رشّ بقعي كل ٧–١٤ يوم عند ظهور الذباب.</li><li><b>كيّس الثمار</b> في حجم البلية لحماية الممتاز/التصدير.</li><li>بعد الحصاد: <b>احرث واغمر</b> الأرض لقتل العذارى.</li><li>التزم <b>فترة الأمان</b>؛ وتجنّب الكلوربيريفوس (ممنوع ويُفسد التصدير).</li></ul></div>
 <div class="opcard op-post reveal"><h3><span class="en">⑥ After harvest (your fast money)</span><span class="ar">⑥ ما بعد الحصاد (ربحك السريع)</span></h3><ul class="en"><li>Guava is highly perishable — biggest loss happens <b>after picking</b>.</li><li>Pick in the <b>cool early morning</b>, at light-green colour (for distant markets).</li><li><b>Float test:</b> the fruit best for transport floats (density ~1.0–1.02).</li><li><b>Shade immediately</b>; never leave crates in the sun.</li><li><b>Sort</b> out damaged fruit (one rots the crate) then <b>grade</b> by size.</li><li>Cool to ~5°C <b>for sound fruit only</b>; beware chilling injury on green/ripe fruit.</li></ul><ul class="ar" dir="rtl"><li>الجوافة سريعة التلف جدًا — أكبر خسارة <b>بعد القطف</b>.</li><li>اقطف <b>الصباح الباكر البارد</b>، عند اللون الأخضر الفاتح (للأسواق البعيدة).</li><li><b>اختبار الطفو:</b> الثمرة الأنسب للنقل تطفو (كثافة ~١٫٠–١٫٠٢).</li><li><b>ظلّل فورًا</b>؛ لا تترك الصناديق في الشمس.</li><li><b>افرز</b> المتضرّر (ثمرة تُعدي الصندوق) ثم <b>درّج</b> بالحجم.</li><li>برّد ~٥°م <b>للسليم فقط</b>؛ احذر ضرر البرودة للثمار الخضراء/الناضجة.</li></ul></div>
-<div class="opcard op-contact reveal"><h3><span class="en">⑦ Key numbers & contacts</span><span class="ar">⑦ أرقام وجهات مهمة</span></h3><ul class="en"><li>Behira Agriculture Directorate (Damanhour): <b dir='ltr'>045 328 8126</b></li><li>Saba Basha analysis lab (Alexandria): <b dir='ltr'>03 583 1646</b></li><li>Eng. Ahmed Atiya nursery — grafted seedlings: <b dir='ltr'>0100 405 5515</b></li><li><b>“Hodhod”</b> app (Ministry of Agriculture) + Facebook “Egyptian Guava Growers”.</li><li>Export & GLOBALG.A.P: <b>HEIA</b> — <span dir='ltr'>heiaegypt.org</span></li></ul><ul class="ar" dir="rtl"><li>مديرية زراعة البحيرة (دمنهور): <b dir='ltr'>045 328 8126</b></li><li>معمل تحاليل سابا باشا (الإسكندرية): <b dir='ltr'>03 583 1646</b></li><li>مشتل م. أحمد عطية — شتلات مطعّمة: <b dir='ltr'>0100 405 5515</b></li><li>تطبيق <b>«هدهد»</b> (وزارة الزراعة) + مجموعة «مزارعي الجوافة في مصر» على فيسبوك.</li><li>للتصدير وجلوبال جاب: <b>HEIA</b> — <span dir='ltr'>heiaegypt.org</span></li></ul></div>
+<div class="opcard op-contact reveal"><h3><span class="en">⑦ Key numbers & contacts</span><span class="ar">⑦ أرقام وجهات مهمة</span></h3><ul class="en"><li>Behira Agriculture Directorate (Damanhour): <b dir='ltr'>045 328 8126</b></li><li>Saba Basha analysis lab (Alexandria): <b dir='ltr'>03 583 1646</b></li><li>Eng. Ahmed Atiya nursery — grafted seedlings: <b dir='ltr'>0100 405 5515</b></li><li><b>“Hodhod”</b> app (Ministry of Agriculture) + Facebook “Egyptian Guava Growers”.</li><li>Export & GLOBALG.A.P: <b>HEIA</b> — <span dir='ltr'>heiaegypt.org</span></li></ul><ul class="ar" dir="rtl"><li>مديرية زراعة البحيرة (دمنهور): <b dir='ltr'>045 328 8126</b></li><li>معمل تحاليل سابا باشا (الإسكندرية): <b dir='ltr'>03 583 1646</b></li><li>مشتل م. أحمد عطية — شتلات مطعّمة: <b dir='ltr'>0100 405 5515</b></li><li>تطبيق <b>«هدهد»</b> (وزارة الزراعة) + مجموعة «مزارعي الجوافة في مصر» على فيسبوك.</li><li>للتصدير وجلوبال جاب: <b>HEIA</b> — <span dir='ltr'>heiaegypt.org</span></li></ul></div></div>
     </div>
   </div>
 </section>
 
-<!-- GUIDE -->
-<section class="section guide" id="guide">
+<section class="section" id="guide">
+  <div class="wrap"><p class="fleuron">❧</p></div>
   <div class="guide-wrap">
     <nav class="toc desktop" aria-label="Chapters">
-      <p class="toc-title"><span class="en">Chapters</span><span class="ar">الفصول</span></p>
+      <p class="toc-title"><span class="en">Contents</span><span class="ar">الفصول</span></p>
       <a class="toc-link" href="#ch00" data-target="ch00"><span class="toc-num">00</span><span class="toc-txt"><span class="en">Master Roadmap</span><span class="ar">الخريطة الرئيسية</span></span></a>
 <a class="toc-link" href="#ch01" data-target="ch01"><span class="toc-num">01</span><span class="toc-txt"><span class="en">Foundations & How to Learn</span><span class="ar">الأساسيات وكيفية التعلّم</span></span></a>
 <a class="toc-link" href="#ch02" data-target="ch02"><span class="toc-num">02</span><span class="toc-txt"><span class="en">Soil, Water & Irrigation</span><span class="ar">التربة والمياه والري</span></span></a>
@@ -388,10 +281,7 @@ body.dark .opcard{color:#1f2a24}
 <a class="toc-link" href="#ch10" data-target="ch10"><span class="toc-num">10</span><span class="toc-txt"><span class="en">Resource Library</span><span class="ar">مكتبة المصادر</span></span></a>
 <a class="toc-link" href="#ch11" data-target="ch11"><span class="toc-num">11</span><span class="toc-txt"><span class="en">Progress Tracker & Season Calendar</span><span class="ar">متابعة التقدّم والتقويم الموسمي</span></span></a>
     </nav>
-    <div class="chapters">
-      <section class="chapter reveal" id="ch00">
-  <div class="ch-head"><span class="seed">00</span><span class="ch-emoji">🧭</span><span class="ch-kicker"><span class="en">Chapter 00</span><span class="ar">الفصل 00</span></span></div>
-  <div class="lang en prose"><h1>🌳 Guava Mastery — Master Roadmap</h1>
+    <div class="chapters"><section class="chapter reveal" id="ch00"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 00 · Master Roadmap</span><span class="ar">الفصل 00 · الخريطة الرئيسية</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/blanco172.jpg" alt="Chromolithograph — F. M. Blanco, Flora de Filipinas (c. 1880)."></div><figcaption><span class="en"><span class="fig">Plate I.</span> Chromolithograph — F. M. Blanco, Flora de Filipinas (c. 1880).</span><span class="ar"><span class="fig">لوحة I.</span> رسم حجري ملوّن — بلانكو، فلورا الفلبين (نحو ١٨٨٠).</span></figcaption></figure><div class="lang en prose"><h1>🌳 Guava Mastery — Master Roadmap</h1>
 <blockquote>
 <p><strong>Who this is for:</strong> A white (common) guava farmer — <em>Psidium guajava</em> — in <strong>Kafr El Dawwar, Behira, Nile Delta, Egypt</strong>, who today farms by folk experience and trial-and-error, and wants to become one of the most competent fruit growers in the world.</p>
 <p><strong>The promise:</strong> This roadmap assumes <strong>zero prior formal knowledge</strong>. Every concept is introduced from scratch. You do not need to know any science to start.</p>
@@ -524,8 +414,7 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li><strong>They lose almost nothing</strong> after harvest, and they capture more of the final price by grading, organizing, and selling closer to the buyer.</li>
 <li><strong>They keep learning</strong> — from ICAR-CISH and FAO and the global research frontier, adapted to Behira's clay, salinity, heat, and fruit fly.</li>
 </ul>
-<p>That is the whole journey this roadmap lays out. Start with the soil test and <a class="xref" href="#ch01">Foundations &amp; How to Learn</a>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>🌳 إتقان زراعة الجوافة — الخريطة الرئيسية</h1>
+<p>That is the whole journey this roadmap lays out. Start with the soil test and <a class="xref" href="#ch01">Foundations &amp; How to Learn</a>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>🌳 إتقان زراعة الجوافة — الخريطة الرئيسية</h1>
 <blockquote>
 <p><strong>لمن هذا الدليل:</strong> مزارع جوافة بيضاء (شائعة) — <em>Psidium guajava</em> — في <strong>كفر الدوار، البحيرة، دلتا النيل، مصر</strong>، يعتمد اليوم على الخبرة الفلاحية والتجربة والخطأ، ويريد أن يصبح من أكفأ مزارعي الفاكهة في العالم.</p>
 <p><strong>الوعد:</strong> هذا الدليل يفترض <strong>عدم وجود أي معرفة علمية مسبقة</strong>. كل مفهوم يُشرح من الصفر. لست بحاجة لأي خلفية علمية لتبدأ.</p>
@@ -658,12 +547,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li><strong>لا يخسرون شيئًا تقريبًا</strong> بعد الحصاد، ويحصدون نصيبًا أكبر من السعر النهائي عبر التدريج والتنظيم والبيع الأقرب للمشتري.</li>
 <li><strong>يواصلون التعلّم</strong> — من معهد ICAR-CISH ومن الفاو ومن جبهة البحث العالمية، مُكيَّفًا على طين البحيرة وملوحتها وحرارتها وذبابة فاكهتها.</li>
 </ul>
-<p>تلك هي الرحلة كلها التي يرسمها هذا الدليل. ابدأ بتحليل التربة وبـ<a class="xref" href="#ch01">الأساسيات وكيفية التعلّم</a>.</p></div>
-</section>
-<section class="chapter reveal" id="ch01">
-  <div class="ch-head"><span class="seed">01</span><span class="ch-emoji">🌱</span><span class="ch-kicker"><span class="en">Chapter 01</span><span class="ar">الفصل 01</span></span></div>
-  <div class="lang en prose"><h1>🌱 Phase 0 — Foundations &amp; How to Learn</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>تلك هي الرحلة كلها التي يرسمها هذا الدليل. ابدأ بتحليل التربة وبـ<a class="xref" href="#ch01">الأساسيات وكيفية التعلّم</a>.</p></div></section>
+<section class="chapter reveal" id="ch01"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 01 · Foundations &amp; How to Learn</span><span class="ar">الفصل 01 · الأساسيات وكيفية التعلّم</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/blanco48.jpg" alt="Foliage and fruit — Blanco, Flora de Filipinas (c. 1880)."></div><figcaption><span class="en"><span class="fig">Plate II.</span> Foliage and fruit — Blanco, Flora de Filipinas (c. 1880).</span><span class="ar"><span class="fig">لوحة II.</span> الأوراق والثمار — بلانكو، فلورا الفلبين (نحو ١٨٨٠).</span></figcaption></figure><div class="lang en prose"><h1>🌱 Phase 0 — Foundations &amp; How to Learn</h1>
+
 <p>This phase builds the <strong>science under your feet and inside your trees</strong>, starting from absolutely nothing. Every other phase rests on it. Spend ~2–3 months here at a relaxed pace, while you also fix post-harvest handling (<a class="xref" href="#ch07">Post-Harvest &amp; Value Addition</a>) for quick wins.</p>
 <hr />
 <h2>0. How to learn this (so it sticks)</h2>
@@ -860,9 +746,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Read a soil-test report's pH, EC, and N-P-K lines without panic.</li>
 </ul>
 <p>→ Next: <strong><a class="xref" href="#ch02">Soil, Water &amp; Irrigation</a></strong> (apply this to your Delta clay and water), or jump to quick wins in <strong><a class="xref" href="#ch07">Post-Harvest &amp; Value Addition</a></strong>.</p>
-<p>All resources are gathered in <strong><a class="xref" href="#ch10">Resource Library</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>🌱 المرحلة ٠ — الأساسيات وكيفية التعلّم</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>All resources are gathered in <strong><a class="xref" href="#ch10">Resource Library</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>🌱 المرحلة ٠ — الأساسيات وكيفية التعلّم</h1>
+
 <p>تبني هذه المرحلة <strong>العلم الذي تحت قدميك وداخل أشجارك</strong>، انطلاقًا من لا شيء. كل مرحلة أخرى تستند إليها. اقضِ هنا نحو ٢–٣ أشهر بإيقاع مريح، بينما تُصلح أيضًا معاملة ما بعد الحصاد (<a class="xref" href="#ch07">ما بعد الحصاد والتصنيع</a>) لمكاسب سريعة.</p>
 <hr />
 <h2>٠. كيف تتعلّم هذا (حتى يرسخ)</h2>
@@ -1059,12 +944,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>قراءة pH وEC وNPK في تقرير تحليل دون ارتباك.</li>
 </ul>
 <p>→ التالي: <strong><a class="xref" href="#ch02">التربة والمياه والري</a></strong> (طبّق هذا على طين الدلتا ومائك)، أو اقفز لمكاسب سريعة في <strong><a class="xref" href="#ch07">ما بعد الحصاد والتصنيع</a></strong>.</p>
-<p>كل المصادر مجمّعة في <strong><a class="xref" href="#ch10">مكتبة المصادر</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch02">
-  <div class="ch-head"><span class="seed">02</span><span class="ch-emoji">💧</span><span class="ch-kicker"><span class="en">Chapter 02</span><span class="ar">الفصل 02</span></span></div>
-  <div class="lang en prose"><h1>💧 Phase 1 — Soil, Water &amp; Irrigation</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a> · builds on <a class="xref" href="#ch01">Foundations &amp; How to Learn</a></p>
+<p>كل المصادر مجمّعة في <strong><a class="xref" href="#ch10">مكتبة المصادر</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch02"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 02 · Soil, Water &amp; Irrigation</span><span class="ar">الفصل 02 · التربة والمياه والري</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/zotl.jpg" alt="Der Gujavenbaum — gouache by Aloys Zötl (19th c.)."></div><figcaption><span class="en"><span class="fig">Plate III.</span> Der Gujavenbaum — gouache by Aloys Zötl (19th c.).</span><span class="ar"><span class="fig">لوحة III.</span> شجرة الجوافة — جواش لألويس تسوتل (القرن التاسع عشر).</span></figcaption></figure><div class="lang en prose"><h1>💧 Phase 1 — Soil, Water &amp; Irrigation</h1>
+
 <blockquote>
 <p><strong>Your situation in one breath:</strong> heavy clay/clay-loam in the <strong>north Nile Delta</strong>, canal (Nile) water, real <strong>water scarcity</strong>, and a serious <strong>salinity/sodicity</strong> risk (≈46% of north-Delta land is salt-affected). Three facts drive every decision: clay holds water but lets it in <em>slowly</em>; salts accumulate and must be <em>managed</em>; and the government is actively pushing (and sometimes subsidizing) <strong>flood → drip</strong> conversion. Guava responds strongly to drip — it can start bearing a year earlier with bigger, sweeter fruit.</p>
 </blockquote>
@@ -1255,9 +1137,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Read a tensiometer and decide whether to irrigate.</li>
 <li>Name the gypsum + leaching + drainage sequence for reclaiming a salty patch.</li>
 </ul>
-<p>→ Next: <strong><a class="xref" href="#ch03">Guava Cultivation Science</a></strong> and <strong><a class="xref" href="#ch04">Plant Nutrition &amp; Fertigation</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>💧 المرحلة ١ — التربة والمياه والري</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a> · تبني على <a class="xref" href="#ch01">الأساسيات وكيفية التعلّم</a></p>
+<p>→ Next: <strong><a class="xref" href="#ch03">Guava Cultivation Science</a></strong> and <strong><a class="xref" href="#ch04">Plant Nutrition &amp; Fertigation</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>💧 المرحلة ١ — التربة والمياه والري</h1>
+
 <blockquote>
 <p><strong>وضعك في سطر واحد:</strong> طين / طين طمي ثقيل في <strong>شمال دلتا النيل</strong>، ماء ترع (النيل)، <strong>شُحّ مائي</strong> حقيقي، وخطر <strong>ملوحة/صودية</strong> جدّي (≈٤٦٪ من أراضي شمال الدلتا متأثّرة بالأملاح). ثلاث حقائق تحرّك كل قرار: الطين يحبس الماء لكنه يُدخِله <em>ببطء</em>؛ الأملاح تتراكم ويجب <em>إدارتها</em>؛ والحكومة تدفع بقوة (وأحيانًا بدعم) نحو <strong>التحوّل من الغمر للتنقيط</strong>. والجوافة تستجيب بقوة للتنقيط — قد تبدأ الإثمار قبل عام بثمار أكبر وأحلى.</p>
 </blockquote>
@@ -1448,12 +1329,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>قراءة تنشيومتر وتقرير الري من عدمه.</li>
 <li>ذكر تسلسل الجبس + الغسيل + الصرف لاستصلاح بقعة مالحة.</li>
 </ul>
-<p>→ التالي: <strong><a class="xref" href="#ch03">علم زراعة الجوافة</a></strong> و<strong><a class="xref" href="#ch04">تغذية النبات والتسميد بالري</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch03">
-  <div class="ch-head"><span class="seed">03</span><span class="ch-emoji">🌳</span><span class="ch-kicker"><span class="en">Chapter 03</span><span class="ar">الفصل 03</span></span></div>
-  <div class="lang en prose"><h1>🌳 Phase 2 — Guava Cultivation Science</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a> · needs <a class="xref" href="#ch01">Foundations &amp; How to Learn</a></p>
+<p>→ التالي: <strong><a class="xref" href="#ch03">علم زراعة الجوافة</a></strong> و<strong><a class="xref" href="#ch04">تغذية النبات والتسميد بالري</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch03"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 03 · Guava Cultivation Science</span><span class="ar">الفصل 03 · علم زراعة الجوافة</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/cyclopedia.jpg" alt="Wood-engraving — Cyclopedia of American Horticulture (1900)."></div><figcaption><span class="en"><span class="fig">Plate IV.</span> Wood-engraving — Cyclopedia of American Horticulture (1900).</span><span class="ar"><span class="fig">لوحة IV.</span> نقش خشبي — موسوعة البستنة الأمريكية (١٩٠٠).</span></figcaption></figure><div class="lang en prose"><h1>🌳 Phase 2 — Guava Cultivation Science</h1>
+
 <blockquote>
 <p><strong>This is the heart of the roadmap.</strong> It contains your single highest-leverage skill: <strong>crop regulation</strong> — deliberately forcing a high-quality, high-price <strong>winter crop</strong>. Egypt's commercial guava system is built on exactly this, and there's a tested <em>local</em> protocol below. Master Section 5 and you change your economics.</p>
 </blockquote>
@@ -1612,9 +1490,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Explain <em>ambe</em> vs <em>mrig</em> bahar and write your own 5-step winter-crop forcing plan with doses.</li>
 <li>Rejuvenate an old tree by heading it back.</li>
 </ul>
-<p>→ Next: feed the crop in <strong><a class="xref" href="#ch04">Plant Nutrition &amp; Fertigation</a></strong> and protect it in <strong><a class="xref" href="#ch05">Pest &amp; Disease Management</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>🌳 المرحلة ٢ — علم زراعة الجوافة</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a> · تحتاج <a class="xref" href="#ch01">الأساسيات وكيفية التعلّم</a></p>
+<p>→ Next: feed the crop in <strong><a class="xref" href="#ch04">Plant Nutrition &amp; Fertigation</a></strong> and protect it in <strong><a class="xref" href="#ch05">Pest &amp; Disease Management</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>🌳 المرحلة ٢ — علم زراعة الجوافة</h1>
+
 <blockquote>
 <p><strong>هذه قلب الدليل.</strong> تحتوي على مهارتك الأعلى أثرًا: <strong>تنظيم الحمل</strong> — التحضير العمدي لـ<strong>محصول شتوي</strong> عالي الجودة والسعر. نظام الجوافة التجاري في مصر مبني على هذا تحديدًا، وهناك بروتوكول <em>محلي</em> مُختبَر بالأسفل. أتقن القسم ٥ يتغيّر اقتصادك.</p>
 </blockquote>
@@ -1773,12 +1650,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>شرح بهار الربيع مقابل بهار الأمطار وكتابة خطّتك الخماسية لتحضير المحصول الشتوي بالجرعات.</li>
 <li>تجديد شجرة قديمة بقطع رأسها.</li>
 </ul>
-<p>→ التالي: غذِّ المحصول في <strong><a class="xref" href="#ch04">تغذية النبات والتسميد بالري</a></strong> واحمِه في <strong><a class="xref" href="#ch05">إدارة الآفات والأمراض</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch04">
-  <div class="ch-head"><span class="seed">04</span><span class="ch-emoji">🧪</span><span class="ch-kicker"><span class="en">Chapter 04</span><span class="ar">الفصل 04</span></span></div>
-  <div class="lang en prose"><h1>🧪 Phase 3 — Plant Nutrition &amp; Fertigation</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a> · builds on <a class="xref" href="#ch01">Foundations &amp; How to Learn</a> §3 and <a class="xref" href="#ch02">Soil, Water &amp; Irrigation</a></p>
+<p>→ التالي: غذِّ المحصول في <strong><a class="xref" href="#ch04">تغذية النبات والتسميد بالري</a></strong> واحمِه في <strong><a class="xref" href="#ch05">إدارة الآفات والأمراض</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch04"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 04 · Plant Nutrition &amp; Fertigation</span><span class="ar">الفصل 04 · تغذية النبات والتسميد بالري</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/madeira.jpg" alt="From Madeira: Flowers, Fruits &amp; Ferns (1880s)."></div><figcaption><span class="en"><span class="fig">Plate V.</span> From Madeira: Flowers, Fruits &amp; Ferns (1880s).</span><span class="ar"><span class="fig">لوحة V.</span> من «أزهار وفواكه وسرخسيات ماديرا» (ثمانينيات القرن ١٩).</span></figcaption></figure><div class="lang en prose"><h1>🧪 Phase 3 — Plant Nutrition &amp; Fertigation</h1>
+
 <blockquote>
 <p><strong>The shift you're making:</strong> from "fertilize by habit" to "feed the tree exactly what a <strong>soil + leaf test</strong> says it needs, when it needs it." On alkaline Delta clay, the right micronutrients and fertigation are often worth more than piling on more N-P-K.</p>
 </blockquote>
@@ -1877,9 +1751,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Set a high-K bias during fruit sizing and say why.</li>
 <li>Run a basic fertigation cycle (irrigate → inject → flush) without clogging emitters.</li>
 </ul>
-<p>→ Next: <strong><a class="xref" href="#ch05">Pest &amp; Disease Management</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>🧪 المرحلة ٣ — تغذية النبات والتسميد بالري</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a> · تبني على <a class="xref" href="#ch01">الأساسيات وكيفية التعلّم</a> §٣ و<a class="xref" href="#ch02">التربة والمياه والري</a></p>
+<p>→ Next: <strong><a class="xref" href="#ch05">Pest &amp; Disease Management</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>🧪 المرحلة ٣ — تغذية النبات والتسميد بالري</h1>
+
 <blockquote>
 <p><strong>التحوّل الذي تجريه:</strong> من «التسميد بالعادة» إلى «تغذية الشجرة بما يقوله <strong>تحليل التربة + الأوراق</strong> تحديدًا، حين تحتاجه». على طين الدلتا القلوي، العناصر الصغرى الصحيحة والرسمدة كثيرًا ما تساوي أكثر من تكويم المزيد من NPK.</p>
 </blockquote>
@@ -1978,12 +1851,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>ضبط ميل للبوتاسيوم العالي وقت تكبير الثمرة وقول السبب.</li>
 <li>تشغيل دورة رسمدة أساسية (ريّ ← حقن ← غسيل) دون انسداد النقّاطات.</li>
 </ul>
-<p>→ التالي: <strong><a class="xref" href="#ch05">إدارة الآفات والأمراض</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch05">
-  <div class="ch-head"><span class="seed">05</span><span class="ch-emoji">🐛</span><span class="ch-kicker"><span class="en">Chapter 05</span><span class="ar">الفصل 05</span></span></div>
-  <div class="lang en prose"><h1>🐛 Phase 4 — Pest &amp; Disease Management (IPM)</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>→ التالي: <strong><a class="xref" href="#ch05">إدارة الآفات والأمراض</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch05"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 05 · Pest &amp; Disease Management</span><span class="ar">الفصل 05 · إدارة الآفات والأمراض</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/kitlv_butterfly.jpg" alt="Branches &amp; open fruit with feeding butterfly — brush drawing, C. Markée, c. 1763."></div><figcaption><span class="en"><span class="fig">Plate VI.</span> Branches &amp; open fruit with feeding butterfly — brush drawing, C. Markée, c. 1763.</span><span class="ar"><span class="fig">لوحة VI.</span> أفرع وثمار مفتوحة وفراشة تتغذّى — رسم بالفرشاة، كورنيليس ماركيه، نحو ١٧٦٣.</span></figcaption></figure><div class="lang en prose"><h1>🐛 Phase 4 — Pest &amp; Disease Management (IPM)</h1>
+
 <blockquote>
 <p><strong>The one thing that matters most:</strong> in Egypt, the "dood" (worm) inside your guava is almost always a <strong>fruit fly</strong> larva — the <strong>peach fruit fly (<em>Bactrocera zonata</em>)</strong> or the <strong>Mediterranean fruit fly (<em>Ceratitis capitata</em>, medfly)</strong>. These two cause the large majority of guava losses in the Delta. <strong>Master fruit-fly management + orchard sanitation and you solve 70–80% of your pest problem.</strong> Everything else is secondary.</p>
 </blockquote>
@@ -2071,9 +1941,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Read a pesticide label, calibrate, and state the PHI before you spray.</li>
 <li>Say why chlorpyrifos and over-spraying can kill an export contract.</li>
 </ul>
-<p>→ Next: <strong><a class="xref" href="#ch06">Modern &amp; Precision Ag Tech</a></strong> to monitor all this cheaply.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>🐛 المرحلة ٤ — إدارة الآفات والأمراض (المكافحة المتكاملة)</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>→ Next: <strong><a class="xref" href="#ch06">Modern &amp; Precision Ag Tech</a></strong> to monitor all this cheaply.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>🐛 المرحلة ٤ — إدارة الآفات والأمراض (المكافحة المتكاملة)</h1>
+
 <blockquote>
 <p><strong>أهمّ شيء على الإطلاق:</strong> في مصر، «الدود» داخل جوافتك هو غالبًا يرقة <strong>ذبابة فاكهة</strong> — <strong>ذبابة فاكهة الخوخ (<em>Bactrocera zonata</em>)</strong> أو <strong>ذبابة فاكهة البحر المتوسط (<em>Ceratitis capitata</em>)</strong>. هاتان تسبّبان معظم خسائر الجوافة في الدلتا. <strong>أتقن مكافحة ذبابة الفاكهة + النظافة الحقلية تحلّ ٧٠–٨٠٪ من مشكلة آفاتك.</strong> وكل ما عداه ثانوي.</p>
 </blockquote>
@@ -2161,12 +2030,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>قراءة ملصق مبيد، المعايرة، وذكر PHI قبل الرش.</li>
 <li>قول لماذا يقتل الكلوربيريفوس والرش المفرط عقد تصدير.</li>
 </ul>
-<p>→ التالي: <strong><a class="xref" href="#ch06">التقنيات الحديثة والزراعة الدقيقة</a></strong> لرصد كل هذا بثمن زهيد.</p></div>
-</section>
-<section class="chapter reveal" id="ch06">
-  <div class="ch-head"><span class="seed">06</span><span class="ch-emoji">📡</span><span class="ch-kicker"><span class="en">Chapter 06</span><span class="ar">الفصل 06</span></span></div>
-  <div class="lang en prose"><h1>📡 Phase 5 — Modern &amp; Precision Ag Tech</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>→ التالي: <strong><a class="xref" href="#ch06">التقنيات الحديثة والزراعة الدقيقة</a></strong> لرصد كل هذا بثمن زهيد.</p></div></section>
+<section class="chapter reveal" id="ch06"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 06 · Modern &amp; Precision Ag Tech</span><span class="ar">الفصل 06 · التقنيات الحديثة والزراعة الدقيقة</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/florasinensis.jpg" alt="Woodcut — M. Boym, Flora Sinensis (1656)."></div><figcaption><span class="en"><span class="fig">Plate VII.</span> Woodcut — M. Boym, Flora Sinensis (1656).</span><span class="ar"><span class="fig">لوحة VII.</span> نقش خشبي — فلورا سينينسيس (١٦٥٦).</span></figcaption></figure><div class="lang en prose"><h1>📡 Phase 5 — Modern &amp; Precision Ag Tech</h1>
+
 <blockquote>
 <p><strong>The honest headline:</strong> the highest-value, lowest-cost technology for you is <strong>free satellite imagery on your phone</strong> — not drones, not expensive sensors. A whole "start cheaply" kit (annual soil test + EC/pH pens + a battery drip timer + a Venturi injector) costs <strong>under ~5,000 EGP</strong>. Add tech only when it earns its keep.</p>
 </blockquote>
@@ -2244,9 +2110,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Use Plantix as a first guess and verify it properly.</li>
 <li>Explain why you'd <em>hire</em> (not buy) a drone in Egypt.</li>
 </ul>
-<p>→ Next: protect your income after the tree in <strong><a class="xref" href="#ch07">Post-Harvest &amp; Value Addition</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>📡 المرحلة ٥ — التقنيات الحديثة والزراعة الدقيقة</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>→ Next: protect your income after the tree in <strong><a class="xref" href="#ch07">Post-Harvest &amp; Value Addition</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>📡 المرحلة ٥ — التقنيات الحديثة والزراعة الدقيقة</h1>
+
 <blockquote>
 <p><strong>العنوان الصريح:</strong> أعلى تقنية قيمةً وأقلّها تكلفةً لك هي <strong>صور الأقمار الصناعية المجانية على هاتفك</strong> — لا الطائرات بدون طيار ولا المستشعرات الغالية. وكامل عُدّة «ابدأ بثمن زهيد» (تحليل تربة سنوي + أقلام EC/pH + مؤقّت تنقيط بطارية + حاقن فنتوري) تكلّف <strong>أقل من ~٥٠٠٠ جنيه</strong>. أضِف التقنية فقط حين تستحق ثمنها.</p>
 </blockquote>
@@ -2324,12 +2189,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>استخدام Plantix كتخمين أول والتحقّق منه جيّدًا.</li>
 <li>شرح لماذا <em>تستأجر</em> (لا تشتري) درونًا في مصر.</li>
 </ul>
-<p>→ التالي: احمِ دخلك بعد الشجرة في <strong><a class="xref" href="#ch07">ما بعد الحصاد والتصنيع</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch07">
-  <div class="ch-head"><span class="seed">07</span><span class="ch-emoji">📦</span><span class="ch-kicker"><span class="en">Chapter 07</span><span class="ar">الفصل 07</span></span></div>
-  <div class="lang en prose"><h1>📦 Phase 6 — Post-Harvest &amp; Value Addition</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>→ التالي: احمِ دخلك بعد الشجرة في <strong><a class="xref" href="#ch07">ما بعد الحصاد والتصنيع</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch07"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 07 · Post-Harvest &amp; Value Addition</span><span class="ar">الفصل 07 · ما بعد الحصاد والتصنيع</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/pom458.jpg" alt="Ripe guava — watercolour, USDA Pomological Collection (c. 1900)."></div><figcaption><span class="en"><span class="fig">Plate VIII.</span> Ripe guava — watercolour, USDA Pomological Collection (c. 1900).</span><span class="ar"><span class="fig">لوحة VIII.</span> جوافة ناضجة — ألوان مائية، المجموعة البومولوجية الأمريكية (نحو ١٩٠٠).</span></figcaption></figure><div class="lang en prose"><h1>📦 Phase 6 — Post-Harvest &amp; Value Addition</h1>
+
 <blockquote>
 <p><strong>Your fastest money lives here, and it's nearly free.</strong> Guava is one of the <em>most perishable fruits on earth</em> — a winter-crop guava lasts only <strong>6–9 days</strong> at room temperature; a summer one <strong>2–4 days</strong>. <strong>Most of a small grower's lost income is lost AFTER the fruit leaves the tree</strong> — in heat, bruising, and bad timing. Fixing handling costs knowledge and discipline, not cash, and it pays back <em>this season</em>.</p>
 </blockquote>
@@ -2418,9 +2280,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Cut your post-harvest losses measurably (track it in your notebook).</li>
 <li>Make a test batch of guava paste or jam from cull fruit, hygienically.</li>
 </ul>
-<p>→ Next: turn better fruit into more money in <strong><a class="xref" href="#ch08">Business, Marketing &amp; Export</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>📦 المرحلة ٦ — ما بعد الحصاد والتصنيع</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>→ Next: turn better fruit into more money in <strong><a class="xref" href="#ch08">Business, Marketing &amp; Export</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>📦 المرحلة ٦ — ما بعد الحصاد والتصنيع</h1>
+
 <blockquote>
 <p><strong>مالك الأسرع يسكن هنا، وهو شبه مجاني.</strong> الجوافة من <em>أسرع الفواكه تلفًا على الأرض</em> — جوافة المحصول الشتوي تعيش ٦–٩ أيام فقط في حرارة الغرفة؛ والصيفية ٢–٤ أيام. <strong>معظم خسارة المزارع الصغير تحدث بعد مغادرة الثمرة الشجرة</strong> — في الحرارة والكدمات وسوء التوقيت. وإصلاح المعاملة يكلّف معرفةً وانضباطًا، لا مالًا، ويعوّض <em>هذا الموسم</em>.</p>
 </blockquote>
@@ -2509,12 +2370,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>خفض فاقد ما بعد الحصاد بوضوح (تابِعه في دفترك).</li>
 <li>صنع دفعة تجريبية من عجوة أو مربى الجوافة من ثمار الفرز، بنظافة.</li>
 </ul>
-<p>→ التالي: حوّل ثمارًا أفضل إلى مال أكثر في <strong><a class="xref" href="#ch08">الأعمال والتسويق والتصدير</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch08">
-  <div class="ch-head"><span class="seed">08</span><span class="ch-emoji">💰</span><span class="ch-kicker"><span class="en">Chapter 08</span><span class="ar">الفصل 08</span></span></div>
-  <div class="lang en prose"><h1>💰 Phase 7 — Business, Marketing &amp; Export</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>→ التالي: حوّل ثمارًا أفضل إلى مال أكثر في <strong><a class="xref" href="#ch08">الأعمال والتسويق والتصدير</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch08"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 08 · Business, Marketing &amp; Export</span><span class="ar">الفصل 08 · الأعمال والتسويق والتصدير</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/pom459.jpg" alt="Guava, fruit study — USDA Pomological Collection."></div><figcaption><span class="en"><span class="fig">Plate IX.</span> Guava, fruit study — USDA Pomological Collection.</span><span class="ar"><span class="fig">لوحة IX.</span> دراسة لثمرة الجوافة — المجموعة البومولوجية الأمريكية.</span></figcaption></figure><div class="lang en prose"><h1>💰 Phase 7 — Business, Marketing &amp; Export</h1>
+
 <blockquote>
 <p><strong>The income ladder, cheapest rung first:</strong> (1) <strong>lose less</strong> (post-harvest — <a class="xref" href="#ch07">Post-Harvest &amp; Value Addition</a>); (2) <strong>sell smarter</strong> (grading, cooperatives, fewer middlemen); (3) <strong>add value</strong> (paste/jam/juice — <a class="xref" href="#ch07">Post-Harvest &amp; Value Addition</a>); (4) <strong>export</strong> (the big prize, the hardest). This note covers rungs 2 and 4 plus the money discipline under all of them.</p>
 </blockquote>
@@ -2587,9 +2445,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Describe the guava export obstacle (medfly) and why irradiation beats cold treatment for guava.</li>
 <li>Name your first certification (PFA) and your first call (HEIA + a cooperative).</li>
 </ul>
-<p>→ Plug into the people and institutions that make all this real: <strong><a class="xref" href="#ch09">Egypt Local Hub</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>💰 المرحلة ٧ — الأعمال والتسويق والتصدير</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>→ Plug into the people and institutions that make all this real: <strong><a class="xref" href="#ch09">Egypt Local Hub</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>💰 المرحلة ٧ — الأعمال والتسويق والتصدير</h1>
+
 <blockquote>
 <p><strong>سُلّم الدخل، الدرجة الأرخص أولًا:</strong> (١) <strong>اخسر أقل</strong> (ما بعد الحصاد — <a class="xref" href="#ch07">ما بعد الحصاد والتصنيع</a>)؛ (٢) <strong>بِع بذكاء</strong> (تدريج، جمعيات تعاونية، وسطاء أقل)؛ (٣) <strong>أضِف قيمة</strong> (عجوة/مربى/عصير — <a class="xref" href="#ch07">ما بعد الحصاد والتصنيع</a>)؛ (٤) <strong>صدّر</strong> (الجائزة الكبرى، الأصعب). تغطّي هذه الملاحظة الدرجتين ٢ و٤ إضافةً لانضباط المال تحتها جميعًا.</p>
 </blockquote>
@@ -2662,12 +2519,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>وصف عقبة تصدير الجوافة (ذبابة المتوسط) ولماذا يتفوّق الإشعاع على التبريد للجوافة.</li>
 <li>تسمية شهادتك الأولى (PFA) واتصالك الأول (HEIA + جمعية تعاونية).</li>
 </ul>
-<p>→ اتّصل بالناس والمؤسسات التي تجعل كل هذا حقيقة: <strong><a class="xref" href="#ch09">المركز المحلي في مصر</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch09">
-  <div class="ch-head"><span class="seed">09</span><span class="ch-emoji">🇪🇬</span><span class="ch-kicker"><span class="en">Chapter 09</span><span class="ar">الفصل 09</span></span></div>
-  <div class="lang en prose"><h1>🇪🇬 Phase 8 — Egypt Local Hub</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>→ اتّصل بالناس والمؤسسات التي تجعل كل هذا حقيقة: <strong><a class="xref" href="#ch09">المركز المحلي في مصر</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch09"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 09 · Egypt Local Hub</span><span class="ar">الفصل 09 · المركز المحلي في مصر</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/descourtilz.jpg" alt="Hand-coloured engraving — Descourtilz, Flore médicale des Antilles (1820s)."></div><figcaption><span class="en"><span class="fig">Plate X.</span> Hand-coloured engraving — Descourtilz, Flore médicale des Antilles (1820s).</span><span class="ar"><span class="fig">لوحة X.</span> نقش ملوّن يدويًا — ديكورتيلز، الطب النباتي لجزر الأنتيل (عشرينيات القرن ١٩).</span></figcaption></figure><div class="lang en prose"><h1>🇪🇬 Phase 8 — Egypt Local Hub</h1>
+
 <blockquote>
 <p><strong>You are in the heartland.</strong> Behira is <strong>Egypt's #1 guava governorate</strong> — ~155,000 t/yr, ~43% of national production. Alexandria (next door) is #2. Local experts, research stations, soil labs, certified nurseries, and buyers are all within ~1 hour. This note is your contact book. <strong>Most resources here are Arabic — that's correct for local use.</strong></p>
 </blockquote>
@@ -2834,9 +2688,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>Buy seedlings only from an <strong>approved Behira nursery</strong> (grafted, named cultivar).</li>
 <li>Ask the directorate about <strong>drip cost-share</strong>, and — if aiming to export — contact <strong>HEIA</strong> about GLOBALG.A.P.</li>
 </ol>
-<p>→ Back to the plan: <strong><a class="xref" href="#ch00">Master Roadmap</a></strong> · Track it in <strong><a class="xref" href="#ch11">Progress Tracker &amp; Season Calendar</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>🇪🇬 المرحلة ٨ — المركز المحلي في مصر</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>→ Back to the plan: <strong><a class="xref" href="#ch00">Master Roadmap</a></strong> · Track it in <strong><a class="xref" href="#ch11">Progress Tracker &amp; Season Calendar</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>🇪🇬 المرحلة ٨ — المركز المحلي في مصر</h1>
+
 <blockquote>
 <p><strong>أنت في القلب.</strong> البحيرة <strong>محافظة الجوافة رقم ١ في مصر</strong> — ~١٥٥٠٠٠ طن/سنة، ~٤٣٪ من الإنتاج القومي. والإسكندرية المجاورة الثانية. الخبراء المحليون ومحطات البحوث ومعامل التربة والمشاتل المعتمدة والمشترون كلهم في حدود ~ساعة. هذه الملاحظة دفتر هواتفك. <strong>معظم المصادر هنا بالعربية — وهذا صحيح للاستخدام المحلي.</strong></p>
 </blockquote>
@@ -3003,12 +2856,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li>اشترِ شتلات من <strong>مشتل بحيري معتمد</strong> (مطعّمة، صنف مسمّى).</li>
 <li>اسأل المديرية عن <strong>دعم التنقيط</strong>، وإن استهدفت التصدير، اتصل بـ<strong>HEIA</strong> عن جلوبال جاب.</li>
 </ol>
-<p>→ عودة للخطة: <strong><a class="xref" href="#ch00">الخريطة الرئيسية</a></strong> · تابِعها في <strong><a class="xref" href="#ch11">متابعة التقدّم والتقويم الموسمي</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch10">
-  <div class="ch-head"><span class="seed">10</span><span class="ch-emoji">📚</span><span class="ch-kicker"><span class="en">Chapter 10</span><span class="ar">الفصل 10</span></span></div>
-  <div class="lang en prose"><h1>📚 Phase — Resource Library</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>→ عودة للخطة: <strong><a class="xref" href="#ch00">الخريطة الرئيسية</a></strong> · تابِعها في <strong><a class="xref" href="#ch11">متابعة التقدّم والتقويم الموسمي</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch10"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 10 · Resource Library</span><span class="ar">الفصل 10 · مكتبة المصادر</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/florasinensis.jpg" alt="Woodcut — M. Boym, Flora Sinensis (1656)."></div><figcaption><span class="en"><span class="fig">Plate XI.</span> Woodcut — M. Boym, Flora Sinensis (1656).</span><span class="ar"><span class="fig">لوحة XI.</span> نقش خشبي — فلورا سينينسيس (١٦٥٦).</span></figcaption></figure><div class="lang en prose"><h1>📚 Phase — Resource Library</h1>
+
 <p>Every resource across the roadmap, gathered and ranked. ⭐ = top pick in its category. Most are <strong>free</strong>; buy 2–3 foundational books and let the free ecosystem carry the rest. <strong>English-first; 🇪🇬 = Arabic / Egypt-specific.</strong></p>
 <hr />
 <h2>1. Books (buy roughly in this order)</h2>
@@ -3109,9 +2959,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li><a target="_blank" rel="noopener" href="https://www.ifad.org/documents/38714170/39135645/egypt.pdf/eed7f2cf-e8a6-4ceb-822c-28ec714f6947">IFAD — Egypt smallholder contract farming</a></li>
 </ul>
 <hr />
-<p>→ Back to <strong><a class="xref" href="#ch00">Master Roadmap</a></strong> · Next: <strong><a class="xref" href="#ch11">Progress Tracker &amp; Season Calendar</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>📚 مرحلة — مكتبة المصادر</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>→ Back to <strong><a class="xref" href="#ch00">Master Roadmap</a></strong> · Next: <strong><a class="xref" href="#ch11">Progress Tracker &amp; Season Calendar</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>📚 مرحلة — مكتبة المصادر</h1>
+
 <p>كل مصدر عبر الدليل، مجمّعًا ومُرتّبًا. ⭐ = أفضل اختيار في فئته. معظمها <strong>مجاني</strong>؛ اشترِ ٢–٣ كتب أساسية ودع المنظومة المجانية تكمل الباقي. <strong>بالإنجليزية أولًا؛ 🇪🇬 = عربي / خاص بمصر.</strong></p>
 <hr />
 <h2>١. الكتب (اشترِ بهذا الترتيب تقريبًا)</h2>
@@ -3212,12 +3061,9 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 <li><a target="_blank" rel="noopener" href="https://www.ifad.org/documents/38714170/39135645/egypt.pdf/eed7f2cf-e8a6-4ceb-822c-28ec714f6947">IFAD — الزراعة التعاقدية لصغار المزارعين في مصر</a></li>
 </ul>
 <hr />
-<p>→ عودة إلى <strong><a class="xref" href="#ch00">الخريطة الرئيسية</a></strong> · التالي: <strong><a class="xref" href="#ch11">متابعة التقدّم والتقويم الموسمي</a></strong>.</p></div>
-</section>
-<section class="chapter reveal" id="ch11">
-  <div class="ch-head"><span class="seed">11</span><span class="ch-emoji">✅</span><span class="ch-kicker"><span class="en">Chapter 11</span><span class="ar">الفصل 11</span></span></div>
-  <div class="lang en prose"><h1>✅ Progress Tracker &amp; Season Calendar</h1>
-<p>← back to <a class="xref" href="#ch00">Master Roadmap</a></p>
+<p>→ عودة إلى <strong><a class="xref" href="#ch00">الخريطة الرئيسية</a></strong> · التالي: <strong><a class="xref" href="#ch11">متابعة التقدّم والتقويم الموسمي</a></strong>.</p></div></section>
+<section class="chapter reveal" id="ch11"><div class="runhead"><span><span class="en">Psidium guajava</span><span class="ar">الجوافة</span></span><span><span class="en">Chapter 11 · Progress Tracker &amp; Season Calendar</span><span class="ar">الفصل 11 · متابعة التقدّم والتقويم الموسمي</span></span></div><figure class="plate"><div class="mat"><img loading="lazy" src="plates/pom460.jpg" alt="Guava — watercolour, USDA Pomological Collection."></div><figcaption><span class="en"><span class="fig">Plate XII.</span> Guava — watercolour, USDA Pomological Collection.</span><span class="ar"><span class="fig">لوحة XII.</span> الجوافة — ألوان مائية، المجموعة البومولوجية الأمريكية.</span></figcaption></figure><div class="lang en prose"><h1>✅ Progress Tracker &amp; Season Calendar</h1>
+
 <p>Two tools: a <strong>milestone ladder</strong> (am I getting more competent?) and a <strong>month-by-month calendar</strong> (what do I do <em>this</em> month?).</p>
 <hr />
 <h2>1. The milestone ladder — tick these off in order</h2>
@@ -3344,9 +3190,8 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 </ol>
 <p>Five minutes a week is what separates a manager from a guesser.</p>
 <hr />
-<p>→ Back to <strong><a class="xref" href="#ch00">Master Roadmap</a></strong>.</p></div>
-  <div class="lang ar prose" dir="rtl" lang="ar"><h1>✅ متابعة التقدّم والتقويم الموسمي</h1>
-<p>← عودة إلى <a class="xref" href="#ch00">الخريطة الرئيسية</a></p>
+<p>→ Back to <strong><a class="xref" href="#ch00">Master Roadmap</a></strong>.</p></div><div class="lang ar prose" dir="rtl" lang="ar"><h1>✅ متابعة التقدّم والتقويم الموسمي</h1>
+
 <p>أداتان: <strong>سُلّم الإنجازات</strong> (هل أزداد كفاءة؟) و<strong>التقويم شهرًا بشهر</strong> (ماذا أفعل <em>هذا</em> الشهر؟).</p>
 <hr />
 <h2>١. سُلّم الإنجازات — أنجِز هذه بالترتيب</h2>
@@ -3473,86 +3318,37 @@ Year 2+           → Business &amp; market (Phase 7): keep records, join/build 
 </ol>
 <p>خمس دقائق أسبوعيًا هي ما يفصل المدير عن المُخمِّن.</p>
 <hr />
-<p>→ عودة إلى <strong><a class="xref" href="#ch00">الخريطة الرئيسية</a></strong>.</p></div>
-</section>
-    </div>
+<p>→ عودة إلى <strong><a class="xref" href="#ch00">الخريطة الرئيسية</a></strong>.</p></div></section></div>
   </div>
 </section>
 
 <footer>
-  <div class="fbrand"><span class="en">🌳 Guava Mastery</span><span class="ar">🌳 إتقان الجوافة</span></div>
-  <div class="seedline">• • • • •</div>
-  <p><span class="en">A complete bilingual guava-farming roadmap for Kafr El Dawwar, Behira — built from the world's best agronomy, tuned to the Nile Delta.</span>
-     <span class="ar">خريطة طريق ثنائية اللغة لإتقان زراعة الجوافة في كفر الدوار، البحيرة — من أفضل علوم الزراعة في العالم، مضبوطة على دلتا النيل.</span></p>
-  <p style="opacity:.6;margin-top:14px"><span class="en">Made with care 🌱 · Start with a soil test.</span><span class="ar">صُنع بعناية 🌱 · ابدأ بتحليل التربة.</span></p>
+  <p class="fleuron">❧</p>
+  <div class="fbrand"><span class="en">Psidium guajava — a Husbandry</span><span class="ar">الجوافة — دليل زراعة</span></div>
+  <p><span class="en">An illustrated bilingual husbandry for Kafr el-Dawwar, Behira — the world's best agronomy, tuned to the Nile Delta.</span><span class="ar">دليل زراعة مصوّر ثنائي اللغة لكفر الدوار، البحيرة — أفضل علوم الزراعة، مضبوطة على دلتا النيل.</span></p>
+  <p class="src">Botanical plates: Blanco, <i>Flora de Filipinas</i>; W. H. Fitch; <i>Flora Sinensis</i> (1656); USDA Pomological Watercolors — all public domain, via Wikimedia Commons.</p>
 </footer>
 
-<!-- mobile drawer -->
 <div class="scrim" id="scrim" onclick="closeDrawer()"></div>
-<aside class="drawer" id="drawer" aria-label="Chapters">
-  <button class="dclose" onclick="closeDrawer()" aria-label="Close">✕</button>
-  <p class="toc-title" style="clear:both"><span class="en">Chapters</span><span class="ar">الفصول</span></p>
-  <div id="drawer-nav"></div>
-</aside>
+<aside class="drawer" id="drawer"><button class="dclose" onclick="closeDrawer()">✕</button>
+  <p class="toc-title" style="clear:both"><span class="en">Contents</span><span class="ar">الفصول</span></p>
+  <div id="drawer-nav"></div></aside>
 
 <script>
-function setLang(l){
-  document.body.classList.toggle('lang-ar', l==='ar');
-  document.body.classList.toggle('lang-en', l!=='ar');
-  document.documentElement.lang=l;
-  document.documentElement.dir = (l==='ar')?'rtl':'ltr';
-  document.getElementById('btn-en').classList.toggle('on', l!=='ar');
-  document.getElementById('btn-ar').classList.toggle('on', l==='ar');
-  try{localStorage.setItem('guava-lang', l);}catch(e){}
-}
-(function(){ var saved='en'; try{saved=localStorage.getItem('guava-lang')||'en';}catch(e){} setLang(saved); })();
-
-function setTheme(t){document.body.classList.toggle('dark', t==='dark');var b=document.getElementById('theme-btn'); if(b) b.textContent=(t==='dark')?'\u2600\uFE0F':'\uD83C\uDF19'; try{localStorage.setItem('guava-theme', t);}catch(e){}}
+function setLang(l){document.body.classList.toggle('lang-ar',l==='ar');document.body.classList.toggle('lang-en',l!=='ar');document.documentElement.lang=l;document.documentElement.dir=(l==='ar')?'rtl':'ltr';document.getElementById('btn-en').classList.toggle('on',l!=='ar');document.getElementById('btn-ar').classList.toggle('on',l==='ar');try{localStorage.setItem('guava-lang',l);}catch(e){}}
+(function(){var s='en';try{s=localStorage.getItem('guava-lang')||'en';}catch(e){}setLang(s);})();
+function setTheme(t){document.body.classList.toggle('dark',t==='dark');var b=document.getElementById('theme-btn');if(b)b.textContent=(t==='dark')?'☀️':'🌙';try{localStorage.setItem('guava-theme',t);}catch(e){}}
 function toggleTheme(){setTheme(document.body.classList.contains('dark')?'light':'dark');}
-(function(){ var s='light'; try{s=localStorage.getItem('guava-theme')||'light';}catch(e){} setTheme(s); })();
-
-// clone TOC into drawer
-(function(){
-  var src=document.querySelector('.toc.desktop');
-  var dst=document.getElementById('drawer-nav');
-  if(src&&dst){ src.querySelectorAll('.toc-link').forEach(function(a){ dst.appendChild(a.cloneNode(true)); }); }
-  dst.querySelectorAll('.toc-link').forEach(function(a){ a.addEventListener('click', closeDrawer); });
-})();
+(function(){var s='light';try{s=localStorage.getItem('guava-theme')||'light';}catch(e){}setTheme(s);})();
+(function(){var src=document.querySelector('.toc.desktop'),dst=document.getElementById('drawer-nav');if(src&&dst){src.querySelectorAll('.toc-link').forEach(function(a){dst.appendChild(a.cloneNode(true));});dst.querySelectorAll('.toc-link').forEach(function(a){a.addEventListener('click',closeDrawer);});}})();
 function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('scrim').classList.add('open');}
 function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('scrim').classList.remove('open');}
-
-// header scrolled + progress
-var bar=document.getElementById('bar'), prog=document.getElementById('prog');
-function onScroll(){
-  var y=window.scrollY||document.documentElement.scrollTop;
-  bar.classList.toggle('scrolled', y>60);
-  var h=document.documentElement.scrollHeight-window.innerHeight;
-  prog.style.width=(h>0?(y/h*100):0)+'%';
-}
-window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-
-// reveal (robust: never leave content hidden)
-if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  window.addEventListener('load',function(){document.querySelectorAll('.reveal:not(.in)').forEach(function(el){if(el.getBoundingClientRect().top < window.innerHeight*0.95) el.classList.add('in');});});
-  setTimeout(function(){document.querySelectorAll('.reveal:not(.in)').forEach(function(el){el.classList.add('in');});},4000);
-}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
-
-// scroll-spy
-var links=[].slice.call(document.querySelectorAll('.toc.desktop .toc-link'));
-var secs=links.map(function(l){return document.getElementById(l.dataset.target);});
-if('IntersectionObserver' in window && secs.length){
-  var spy=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting){
-        var id=e.target.id;
-        links.forEach(function(l){l.classList.toggle('active', l.dataset.target===id);});
-      }
-    });
-  },{rootMargin:'-45% 0px -50% 0px'});
-  secs.forEach(function(s){if(s)spy.observe(s);});
-}
+var bar=document.getElementById('bar'),prog=document.getElementById('prog');
+function onScroll(){var y=window.scrollY||document.documentElement.scrollTop;bar.classList.toggle('scrolled',y>60);var h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(h>0?(y/h*100):0)+'%';}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.06,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});window.addEventListener('load',function(){document.querySelectorAll('.reveal:not(.in)').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight*0.95)el.classList.add('in');});});setTimeout(function(){document.querySelectorAll('.reveal:not(.in)').forEach(function(el){el.classList.add('in');});},4000);}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
+var links=[].slice.call(document.querySelectorAll('.toc.desktop .toc-link')),secs=links.map(function(l){return document.getElementById(l.dataset.target);});
+if('IntersectionObserver' in window&&secs.length){var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id=e.target.id;links.forEach(function(l){l.classList.toggle('active',l.dataset.target===id);});}});},{rootMargin:'-44% 0px -50% 0px'});secs.forEach(function(s){if(s)spy.observe(s);});}
 </script>
 </body>
 </html>
